@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var ACCELETARION := 1200.0
 @export var FRICTION := 1000
 
+@export var whistle_cast: ShapeCast2D
+
 signal TURN_END
 
 var player_turn := true
@@ -40,6 +42,14 @@ func _process(_delta: float) -> void:
 			if new_sprite != null:
 				$Sprite2D.texture = new_sprite
 			end_turn()
+	
+	if Input.is_action_just_pressed("whistle"):
+		for i in whistle_cast.get_collision_count():
+			var obj = whistle_cast.get_collider(i)
+			if obj is Monster:
+				obj.stun_timer = 3
+				print("Stunning monster!")
+		end_turn()
 
 func cell_empty(pos: Vector2) -> bool:
 	return !walls.any(func(wall): return wall.position == pos)

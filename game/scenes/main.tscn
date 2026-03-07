@@ -26,45 +26,45 @@ position = Vector2(-384, 192)
 [node name="Monster2" parent="Monsters" unique_id=1267144446 instance=ExtResource("3_sugp2")]
 position = Vector2(-384, -64)
 
-[node name="Walls" type="Node2D" parent="." unique_id=464280494]
+[node name="Obstacles" type="Node2D" parent="." unique_id=464280494]
 
-[node name="Wall" parent="Walls" unique_id=30079762 instance=ExtResource("4_jyhfs")]
+[node name="Wall" parent="Obstacles" unique_id=30079762 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, 256)
 
-[node name="Wall8" parent="Walls" unique_id=93558451 instance=ExtResource("4_jyhfs")]
+[node name="Wall8" parent="Obstacles" unique_id=93558451 instance=ExtResource("4_jyhfs")]
 position = Vector2(-384, 256)
 
-[node name="Wall2" parent="Walls" unique_id=232316667 instance=ExtResource("4_jyhfs")]
+[node name="Wall2" parent="Obstacles" unique_id=232316667 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, 192)
 
-[node name="Wall3" parent="Walls" unique_id=764569418 instance=ExtResource("4_jyhfs")]
+[node name="Wall3" parent="Obstacles" unique_id=764569418 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, 128)
 
-[node name="Wall4" parent="Walls" unique_id=1914244435 instance=ExtResource("4_jyhfs")]
+[node name="Wall4" parent="Obstacles" unique_id=1914244435 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, 64)
 
-[node name="Wall5" parent="Walls" unique_id=1166474613 instance=ExtResource("4_jyhfs")]
+[node name="Wall5" parent="Obstacles" unique_id=1166474613 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, 0)
 
-[node name="Wall6" parent="Walls" unique_id=570036377 instance=ExtResource("4_jyhfs")]
+[node name="Wall6" parent="Obstacles" unique_id=570036377 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, -64)
 
-[node name="Wall7" parent="Walls" unique_id=878689758 instance=ExtResource("4_jyhfs")]
+[node name="Wall7" parent="Obstacles" unique_id=878689758 instance=ExtResource("4_jyhfs")]
 position = Vector2(-320, -128)
 
-[node name="Wall9" parent="Walls" unique_id=1159670142 instance=ExtResource("4_jyhfs")]
+[node name="Wall9" parent="Obstacles" unique_id=1159670142 instance=ExtResource("4_jyhfs")]
 position = Vector2(-384, -128)
 
-[node name="Wall10" parent="Walls" unique_id=1033240571 instance=ExtResource("4_jyhfs")]
+[node name="Wall10" parent="Obstacles" unique_id=1033240571 instance=ExtResource("4_jyhfs")]
 position = Vector2(-448, -128)
 
-[node name="Wall11" parent="Walls" unique_id=190648001 instance=ExtResource("4_jyhfs")]
+[node name="Wall11" parent="Obstacles" unique_id=190648001 instance=ExtResource("4_jyhfs")]
 position = Vector2(-512, -128)
 
-[node name="Wall12" parent="Walls" unique_id=1485632540 instance=ExtResource("4_jyhfs")]
+[node name="Wall12" parent="Obstacles" unique_id=1485632540 instance=ExtResource("4_jyhfs")]
 position = Vector2(-448, 256)
 
-[node name="Wall13" parent="Walls" unique_id=1286040252 instance=ExtResource("4_jyhfs")]
+[node name="Wall13" parent="Obstacles" unique_id=1286040252 instance=ExtResource("4_jyhfs")]
 position = Vector2(-512, 256)
 
 [connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
