@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
-[ext_resource type="AudioStream" uid="uid://cp7npelfbkq82" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://dmsrdh6t6at64" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tefeu")

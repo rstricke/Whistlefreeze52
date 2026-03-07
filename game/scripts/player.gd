@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var FRICTION := 1000
 @export var whistle_cast: ShapeCast2D
 const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 # Used to let the parent know that the player's turn has ended
 signal TURN_END
@@ -21,47 +22,52 @@ var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
 
 var door_key: Area2D
-var text_down = preload("res://assets/player/Player_WalkDown.png")
-var text_up = preload("res://assets/player/Player_WalkUp.png")
 var key_found: bool = false
 
 func _process(_delta: float) -> void:
 	if !player_turn:
 		return
 
-	var new_pos: Vector2 = Vector2.INF
+	var target_pos: Vector2 = Vector2.INF
 	var new_sprite: CompressedTexture2D
 
 	if Input.is_action_just_pressed("move_up"):
-		new_pos = position + Vector2(0, -cell_size)
-		new_sprite = text_up
+		target_pos = position + Vector2(0, -cell_size)
+		anim.play("walkUp")
 	elif Input.is_action_just_pressed("move_down"):
-		new_pos = position + Vector2(0, cell_size)
-		new_sprite = text_down
+		target_pos = position + Vector2(0, cell_size)
+		anim.play("walkDown")
+	
 	elif Input.is_action_just_pressed("move_left"):
-		new_pos = position + Vector2(-cell_size, 0)
+		target_pos = position + Vector2(-cell_size, 0)
+		anim.play("walkLeft")
 	elif Input.is_action_just_pressed("move_right"):
-		new_pos = position + Vector2(cell_size, 0)
+		target_pos = position + Vector2(cell_size, 0)
+		anim.play("walkRight")
 
-	if (new_pos != Vector2.INF):
+	if (target_pos != Vector2.INF):
 		
 		#Check if the cell has a key
 		if (!key_found):
-			if cell_has_key(new_pos):
+			if cell_has_key(target_pos):
 				key_found = true
 				%ObjectiveValueLabel.text = 'Look for the door to escape!'
 				print("Key Found")
 				door_key.queue_free()
 		
 		# Attempt to move if the target cell is empty
-		if cell_empty(new_pos):
-			position = new_pos
+		if cell_empty(target_pos):
+			var tween = create_tween()
+			tween.tween_property(self, "position", target_pos, 0.5).set_ease(Tween.EASE_IN)
+			tween.tween_callback(anim.stop)
+			#position = target_pos
 			if new_sprite != null:
 				$Sprite2D.texture = new_sprite
 			print("Player at position:", position)
 			end_turn()
 	
 	if Input.is_action_just_pressed("whistle"):
+		anim.play("whistling")
 		spawn_pulse()
 		for i in whistle_cast.get_collision_count():
 			var obj = whistle_cast.get_collider(i)
