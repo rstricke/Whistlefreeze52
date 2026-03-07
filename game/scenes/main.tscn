@@ -8437,7 +8437,6 @@ sources/5 = SubResource("TileSetAtlasSource_a8y0u")
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
 GRID_SIZE = 20
-DEBUG_DRAW = true
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 
