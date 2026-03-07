@@ -299,7 +299,7 @@ whistle_cast = NodePath("WhistleShapeCast")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_u2ulf")
 animation = &"hitDown"
-frame_progress = 0.33121452
+frame_progress = 0.90933067
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207697494]
 shape = SubResource("RectangleShape2D_g2els")
