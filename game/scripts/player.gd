@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var MAX_SPEED := 300
 @export var ACCELETARION := 1200.0
 @export var FRICTION := 1000
-
 @export var whistle_cast: ShapeCast2D
+const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 
 # Used to let the parent know that the player's turn has ended
 signal TURN_END
@@ -49,6 +49,7 @@ func _process(_delta: float) -> void:
 			end_turn()
 	
 	if Input.is_action_just_pressed("whistle"):
+		spawn_pulse()
 		for i in whistle_cast.get_collision_count():
 			var obj = whistle_cast.get_collider(i)
 			if obj is Monster:
@@ -66,3 +67,9 @@ func _physics_process(_delta: float) -> void:
 func end_turn() -> void:
 	player_turn = false
 	TURN_END.emit()
+	
+func spawn_pulse():
+	print('spawning pulse')
+	var pulse = PULSE_SCENE.instantiate()
+	pulse.global_position = global_position
+	get_tree().current_scene.add_child(pulse)
