@@ -60,9 +60,7 @@ func _process(_delta: float) -> void:
 			var tween = create_tween()
 			tween.tween_property(self, "position", target_pos, 0.5).set_ease(Tween.EASE_IN)
 			tween.tween_callback(anim.stop)
-			#position = target_pos
-			if new_sprite != null:
-				$Sprite2D.texture = new_sprite
+
 			print("Player at position:", position)
 			end_turn()
 	
