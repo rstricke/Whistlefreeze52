@@ -8442,7 +8442,6 @@ player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1222208188]
-visible = false
 color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
@@ -8508,7 +8507,6 @@ position = Vector2(-448, 256)
 position = Vector2(-512, 256)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1355179030]
-visible = false
 z_index = -1
 position = Vector2(32.22, 31.56)
 scale = Vector2(4, 4)
