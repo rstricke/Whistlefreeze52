@@ -47,6 +47,7 @@ func _process(_delta: float) -> void:
 		if (!key_found):
 			if cell_has_key(new_pos):
 				key_found = true
+				%ObjectiveValueLabel.text = 'Look for the door to escape!'
 				print("Key Found")
 				door_key.queue_free()
 		
