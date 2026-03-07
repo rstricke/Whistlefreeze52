@@ -1,26 +1,39 @@
+class_name Player
 extends CharacterBody2D
 
 @export var MAX_SPEED := 300
 @export var ACCELETARION := 1200.0
 @export var FRICTION := 1000
 
+signal TURN_END
 
-var text1 = preload("res://assets/player/Player_WalkDown.png")
-var text2 = preload("res://assets/player/Player_WalkUp.png")
+var player_turn := true
+var cell_size := 0
 
-func _physics_process(delta: float) -> void:
+var text_down = preload("res://assets/player/Player_WalkDown.png")
+var text_up = preload("res://assets/player/Player_WalkUp.png")
 
-	var direction := Input.get_vector("move_left","move_right","move_up", "move_down")
-	if direction != Vector2.ZERO:
-		var tg_v = direction * MAX_SPEED
-		velocity =velocity.move_toward(tg_v, ACCELETARION * delta)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+func _process(_delta: float) -> void:
+	if !player_turn:
+		return
+	if Input.is_action_just_pressed("move_up"):
+		position += Vector2(0, -cell_size)
+		$Sprite2D.texture = text_up
+		end_turn()
+	elif Input.is_action_just_pressed("move_down"):
+		position += Vector2(0, cell_size)
+		$Sprite2D.texture = text_down
+		end_turn()
+	elif Input.is_action_just_pressed("move_left"):
+		position += Vector2(-cell_size, 0)
+		end_turn()
+	elif Input.is_action_just_pressed("move_right"):
+		position += Vector2(cell_size, 0)
+		end_turn()
 
+func _physics_process(_delta: float) -> void:
+	pass
 
-	if direction.y >= 0:
-		$Sprite2D.texture = text1
-	else:
-		$Sprite2D.texture = text2
-
-	move_and_slide()
+func end_turn() -> void:
+	player_turn = false
+	TURN_END.emit()

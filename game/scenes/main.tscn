@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://8wc2jg3lwxq6"]
 
+[ext_resource type="Script" uid="uid://do8r25a57gy5j" path="res://scripts/grid.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player.tscn" id="1_o5qli"]
 
-[node name="Main" type="Node2D" unique_id=1439830060]
+[node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player")]
+script = ExtResource("1_0wfyh")
+CELL_SIZE = 64
+GRID_SIZE = 20
+DEBUG_DRAW = true
+player = NodePath("Player")
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1726134617]
+position_smoothing_enabled = true
+
+[connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
