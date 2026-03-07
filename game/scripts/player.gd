@@ -15,6 +15,7 @@ const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 # Used to let the parent know that the player's turn has ended
 signal TURN_END
 signal UNLOCK_DOOR
+signal WHISTLED
 
 # Player script sets to false, parent sets back to true after monsters go
 var player_turn := true
@@ -82,6 +83,7 @@ func _process(_delta: float) -> void:
 		whistle_cd = whistle_cd_base
 		anim.play("whistling")
 		spawn_pulse()
+		WHISTLED.emit()
 		for i in whistle_cast.get_collision_count():
 			var obj = whistle_cast.get_collider(i)
 			if obj is Monster:

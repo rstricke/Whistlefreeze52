@@ -11139,6 +11139,7 @@ player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")
 unlockedDoor = NodePath("DoorContainer/Unlocked")
+monsterScene = ExtResource("3_sugp2")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
 
@@ -11258,3 +11259,4 @@ tile_set = SubResource("TileSet_tefeu")
 
 [connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
 [connection signal="UNLOCK_DOOR" from="Player" to="." method="unlock_door"]
+[connection signal="WHISTLED" from="Player" to="." method="spawn_monster"]

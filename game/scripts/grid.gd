@@ -12,10 +12,13 @@ extends Node2D
 @export var lockedDoor: TileMapLayer
 @export var unlockedDoor: TileMapLayer
 
+@export var monsterScene: PackedScene
+
 var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
 var door_key: Area2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.cell_size = CELL_SIZE
@@ -115,6 +118,15 @@ func _spawn_key():
 	print('Spawning Key at', new_key.global_position)
 	add_child(new_key)
 	return new_key
+
+func spawn_monster():
+	var pos = get_random_walkable_point()
+	var monster: Monster = monsterScene.instantiate() as Monster
+	monster.position = pos
+	find_child("Monsters").add_child(monster)
+	monster.cell_size = CELL_SIZE
+	monsters.append(monster)
+
 	
 func get_random_walkable_point() -> Vector2:
 	var rect := astar_grid.region
