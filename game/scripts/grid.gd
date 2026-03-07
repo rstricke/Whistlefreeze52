@@ -144,3 +144,8 @@ func get_random_walkable_point() -> Vector2:
 			return cell * CELL_SIZE
 
 	return Vector2.ZERO
+
+
+func _on_win_zone_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print("Winner!")
