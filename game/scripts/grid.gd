@@ -8,6 +8,7 @@ extends Node2D
 
 @export var player: Player
 var monsters: Array[Monster]
+var walls: Array[StaticBody2D]
 
 var astar_grid: AStarGrid2D
 
@@ -26,9 +27,13 @@ func _ready() -> void:
 	astar_grid.region = Rect2i(-GRID_SIZE / 2, -GRID_SIZE / 2, GRID_SIZE, GRID_SIZE)
 	astar_grid.cell_size = Vector2(CELL_SIZE, CELL_SIZE)
 	astar_grid.update()
-	print(astar_grid.get_point_path(Vector2i(0, 0), Vector2i(3, 4))) # Prints [(0, 0), (16, 16), (32, 32), (48, 48), (48, 64)]
 
-	pass # Replace with function body.
+	walls.assign(find_child("Walls").get_children(false))
+
+	player.walls = walls
+
+	for wall in walls:
+		astar_grid.set_point_solid(wall.position / CELL_SIZE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
