@@ -26,9 +26,7 @@ func _draw() -> void:
 		if DEBUG_DRAW_FOLLOWS_PLAYER:
 			x_offset -= player.position.x
 			y_offset -= player.position.y
-			
-			print(x_offset)
-			print(y_offset)
+
 		for x in range(-GRID_SIZE / 2.0, GRID_SIZE / 2.0):
 			for y in range(-GRID_SIZE / 2.0, GRID_SIZE / 2.0):
 				draw_rect(Rect2(x * CELL_SIZE - x_offset, y * CELL_SIZE - y_offset, CELL_SIZE, CELL_SIZE), Color.ALICE_BLUE, false)
@@ -38,4 +36,4 @@ func _draw() -> void:
 func _on_player_turn_end() -> void:
 	print("Turn ended")
 	player.player_turn = true
-	_draw()
+	queue_redraw()
