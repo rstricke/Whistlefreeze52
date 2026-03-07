@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c3kh1wdmoc56t" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b7kkv1mpn6bjc" path="res://assets/player/Player_WalkDown.png" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://cx5jt48upjvc" path="res://scenes/effects/pulse.tscn" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(64, 64)
@@ -23,5 +22,3 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="WhistleShapeCast" type="ShapeCast2D" parent="." unique_id=2098564873]
 shape = SubResource("RectangleShape2D_qhqgy")
 target_position = Vector2(0, 0)
-
-[node name="pulse" parent="." unique_id=230825203 instance=ExtResource("3_qhqgy")]
