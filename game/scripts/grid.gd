@@ -9,6 +9,9 @@ extends Node2D
 @export var player: Player
 @export var obstacleTileMap: TileMapLayer
 
+@export var lockedDoor: TileMapLayer
+@export var unlockedDoor: TileMapLayer
+
 var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
@@ -16,7 +19,7 @@ var door_key: Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.cell_size = CELL_SIZE
-	
+
 	# Get all the "Monster" children
 	monsters.assign(find_child("Monsters").get_children(true))
 		
@@ -50,6 +53,9 @@ func _ready() -> void:
 	door_key = _spawn_key()
 	# Let the player script know where the key is so it is able to acquire it
 	player.door_key = door_key
+
+	lock_door()
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -90,6 +96,18 @@ func _on_player_turn_end() -> void:
 	player.player_turn = true
 
 	queue_redraw()
+
+func lock_door():
+	lockedDoor.visible = true
+	unlockedDoor.visible = false
+	for tile in lockedDoor.get_used_cells():
+		astar_grid.set_point_solid(to_global(tile * CELL_SIZE) / CELL_SIZE)
+
+func unlock_door():
+	lockedDoor.visible = false
+	unlockedDoor.visible = true
+	for tile in lockedDoor.get_used_cells():
+		astar_grid.set_point_solid(to_global(tile * CELL_SIZE) / CELL_SIZE, false)
 
 func _spawn_key():
 	var new_key = preload("res://scenes/Key.tscn").instantiate()

@@ -11131,12 +11131,14 @@ sources/4 = SubResource("TileSetAtlasSource_trceg")
 sources/5 = SubResource("TileSetAtlasSource_a8y0u")
 sources/6 = SubResource("TileSetAtlasSource_ya4ey")
 
-[node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap")]
+[node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
 GRID_SIZE = 20
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
+lockedDoor = NodePath("DoorContainer/Locked")
+unlockedDoor = NodePath("DoorContainer/Unlocked")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
 visible = false
@@ -11222,6 +11224,7 @@ position = Vector2(-448, 256)
 position = Vector2(-512, 256)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1355179030]
+visible = false
 z_index = -1
 position = Vector2(32.22, 31.56)
 scale = Vector2(4, 4)
@@ -11229,6 +11232,7 @@ tile_map_data = PackedByteArray("AAD6/wIAAAAaACUAAAD6/wEAAAAaACUAAAD6/wAAAAAaACU
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="ObstacleTileMapLayer" type="TileMapLayer" parent="." unique_id=301392592]
+visible = false
 z_index = -1
 position = Vector2(-32, -32)
 scale = Vector2(4, 4)
@@ -11238,4 +11242,21 @@ tile_set = SubResource("TileSet_tefeu")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1947548543]
 stream = ExtResource("11_ya4ey")
 
+[node name="DoorContainer" type="Node2D" parent="." unique_id=242740623]
+
+[node name="Unlocked" type="TileMapLayer" parent="DoorContainer" unique_id=769248801]
+z_index = -1
+position = Vector2(-32, -32)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAACAAMAAAAoADsAAAACAAQAAAAoADwAAAADAAMAAAApADsAAAADAAQAAAApADwAAAAEAAMAAAAqADsAAAAEAAQAAAAqADwAAAA=")
+tile_set = SubResource("TileSet_tefeu")
+
+[node name="Locked" type="TileMapLayer" parent="DoorContainer" unique_id=932177611]
+z_index = -1
+position = Vector2(-32, -32)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAACAAMAAAAoADsAAAACAAQAAAAoADwAAAADAAMAAAArADsAAAADAAQAAAArADwAAAAEAAMAAAAqADsAAAAEAAQAAAAqADwAAAA=")
+tile_set = SubResource("TileSet_tefeu")
+
 [connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
+[connection signal="UNLOCK_DOOR" from="Player" to="." method="unlock_door"]

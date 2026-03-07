@@ -10,6 +10,7 @@ const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 
 # Used to let the parent know that the player's turn has ended
 signal TURN_END
+signal UNLOCK_DOOR
 
 # Player script sets to false, parent sets back to true after monsters go
 var player_turn := true
@@ -53,6 +54,7 @@ func _process(_delta: float) -> void:
 		if (!key_found):
 			if cell_has_key(target_pos):
 				key_found = true
+				UNLOCK_DOOR.emit()
 				%ObjectiveValueLabel.text = 'Look for the door to escape!'
 				print("Key Found")
 				door_key.queue_free()
