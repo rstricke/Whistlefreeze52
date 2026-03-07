@@ -18,9 +18,10 @@ var cell_size := 0
 
 # Used to avoid walking on walls
 var walls: Array[StaticBody2D]
-
+var door_key: Area2D
 var text_down = preload("res://assets/player/Player_WalkDown.png")
 var text_up = preload("res://assets/player/Player_WalkUp.png")
+var key_found: bool = false
 
 func _process(_delta: float) -> void:
 	if !player_turn:
@@ -41,6 +42,14 @@ func _process(_delta: float) -> void:
 		new_pos = position + Vector2(cell_size, 0)
 
 	if (new_pos != Vector2.INF):
+		
+		#Check if the cell has a key
+		if (!key_found):
+			if cell_has_key(new_pos):
+				key_found = true
+				print("Key Found")
+				door_key.queue_free()
+		
 		# Attempt to move if the target cell is empty
 		if cell_empty(new_pos):
 			position = new_pos
@@ -61,6 +70,9 @@ func _process(_delta: float) -> void:
 # Checks if a cell does not have a wall in it
 func cell_empty(pos: Vector2) -> bool:
 	return !walls.any(func(wall): return wall.position == pos)
+
+func cell_has_key(pos: Vector2) -> bool:
+	return pos == door_key.global_position
 
 func _physics_process(_delta: float) -> void:
 	pass

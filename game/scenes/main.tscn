@@ -8445,6 +8445,9 @@ color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
 position = Vector2(64, 0)
+MAX_SPEED = null
+ACCELETARION = null
+FRICTION = null
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1811651063]
 position = Vector2(1, 0)
