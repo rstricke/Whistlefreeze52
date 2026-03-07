@@ -7,10 +7,12 @@ extends Node2D
 @export var DEBUG_DRAW_FOLLOWS_PLAYER := true
 
 @export var player: Player
+@export var obstacleTileMap: TileMapLayer
+
 var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
-
+var door_key: Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.cell_size = CELL_SIZE
@@ -31,16 +33,24 @@ func _ready() -> void:
 	# Get all the "Obstaces" children
 	walls.assign(find_child("Obstacles").get_children(false))
 	
-	# Spawn a key
-	_spawn_key()
-	
 	# Let the player script know where the walls are so it can't move onto them
 	player.walls = walls
-
+	
 	# Mark each cell in the grid with a wall as "solid" (impassable) for the pathfinding
 	for wall in walls:
 		astar_grid.set_point_solid((wall.position / CELL_SIZE).round())
+	
+	# Mark each cell in the obstacle tilemap with a wall as "solid" (impassable) for the pathfinding
+	for tile in obstacleTileMap.get_used_cells():
+		astar_grid.set_point_solid(to_global(tile * CELL_SIZE) / CELL_SIZE)
 
+	player.astar_grid = astar_grid
+
+	# Spawn a key after the cells have been marked as solid
+	door_key = _spawn_key()
+	# Let the player script know where the key is so it is able to acquire it
+	player.door_key = door_key
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -75,12 +85,12 @@ func _on_player_turn_end() -> void:
 
 	queue_redraw()
 
-func _spawn_key() -> void:
+func _spawn_key():
 	var new_key = preload("res://scenes/Key.tscn").instantiate()
-	print(get_random_walkable_point())
 	new_key.global_position = get_random_walkable_point()
+	print('Spawning Key at', new_key.global_position)
 	add_child(new_key)
-	print("Spawning Key")
+	return new_key
 	
 func get_random_walkable_point() -> Vector2:
 	var rect := astar_grid.region

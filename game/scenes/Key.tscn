@@ -1,56 +1,56 @@
 [gd_scene format=3 uid="uid://7fsovv5nblba"]
 
-[ext_resource type="Texture2D" uid="uid://cegb36rf6hubr" path="res://assets/pixel-art-key/key-white.png" id="1_gp5im"]
+[ext_resource type="Texture2D" uid="uid://cegb36rf6hubr" path="res://assets/pixel-art-key/key-white.png" id="1_px33k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gp5im"]
-radius = 15.033297
+radius = 29.15476
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3nogi"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40kd0"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwybp"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnhaa"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hkn8"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jc8s"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4c5d"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skie4"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggqdt"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx1qf"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v14yh"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wdox"]
-atlas = ExtResource("1_gp5im")
+atlas = ExtResource("1_px33k")
 region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yp607"]
@@ -97,14 +97,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Key" type="Node2D" unique_id=650258816]
+[node name="Key" type="Area2D" unique_id=1700173089]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1700173089]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=378085257]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=378085257]
 shape = SubResource("CircleShape2D_gp5im")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=861793109]
+scale = Vector2(2.25, 1.8125001)
 sprite_frames = SubResource("SpriteFrames_yp607")
 autoplay = "default"
-frame_progress = 0.8090699
+frame_progress = 0.3890793
