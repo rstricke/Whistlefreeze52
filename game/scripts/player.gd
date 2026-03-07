@@ -5,8 +5,12 @@ extends CharacterBody2D
 @export var ACCELETARION := 1200.0
 @export var FRICTION := 1000
 @export var whistle_cast: ShapeCast2D
+@export var whistle_cd_base := 3
+@export var whistle_cd := 0
+
 const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
 
 # Used to let the parent know that the player's turn has ended
 signal TURN_END
@@ -74,7 +78,8 @@ func _process(_delta: float) -> void:
 			print("Player at position:", position)
 			#end_turn()
 	
-	if Input.is_action_just_pressed("whistle"):
+	if Input.is_action_just_pressed("whistle") && whistle_cd <= 0:
+		whistle_cd = whistle_cd_base
 		anim.play("whistling")
 		spawn_pulse()
 		for i in whistle_cast.get_collision_count():
@@ -98,6 +103,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 func end_turn() -> void:
+	whistle_cd -= 1
 	player_turn = false
 	TURN_END.emit()
 	
