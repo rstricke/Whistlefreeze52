@@ -6,11 +6,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(64, 64)
 
-[node name="Player" type="CharacterBody2D" unique_id=398371810]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(512, 512)
+
+[node name="Player" type="CharacterBody2D" unique_id=398371810 node_paths=PackedStringArray("whistle_cast")]
 script = ExtResource("1_g2els")
+whistle_cast = NodePath("WhistleShapeCast")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654861121]
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207697494]
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="WhistleShapeCast" type="ShapeCast2D" parent="." unique_id=2098564873]
+shape = SubResource("RectangleShape2D_qhqgy")
+target_position = Vector2(0, 0)

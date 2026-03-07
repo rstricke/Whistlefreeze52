@@ -4,10 +4,16 @@ extends CharacterBody2D
 @export var MAX_SPEED := 300
 @export var ACCELETARION := 1200.0
 @export var FRICTION := 1000
+@export var whistle_cast: ShapeCast2D
+const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 
+# Used to let the parent know that the player's turn has ended
 signal TURN_END
 
+# Player script sets to false, parent sets back to true after monsters go
 var player_turn := true
+
+# Used to determine how far to move for each button press
 var cell_size := 0
 
 # Used to avoid walking on walls
@@ -35,12 +41,23 @@ func _process(_delta: float) -> void:
 		new_pos = position + Vector2(cell_size, 0)
 
 	if (new_pos != Vector2.INF):
+		# Attempt to move if the target cell is empty
 		if cell_empty(new_pos):
 			position = new_pos
 			if new_sprite != null:
 				$Sprite2D.texture = new_sprite
 			end_turn()
+	
+	if Input.is_action_just_pressed("whistle"):
+		spawn_pulse()
+		for i in whistle_cast.get_collision_count():
+			var obj = whistle_cast.get_collider(i)
+			if obj is Monster:
+				obj.stun_timer = 3
+				print("Stunning monster!")
+		end_turn()
 
+# Checks if a cell does not have a wall in it
 func cell_empty(pos: Vector2) -> bool:
 	return !walls.any(func(wall): return wall.position == pos)
 
@@ -50,3 +67,9 @@ func _physics_process(_delta: float) -> void:
 func end_turn() -> void:
 	player_turn = false
 	TURN_END.emit()
+	
+func spawn_pulse():
+	print('spawning pulse')
+	var pulse = PULSE_SCENE.instantiate()
+	pulse.global_position = global_position
+	get_tree().current_scene.add_child(pulse)
