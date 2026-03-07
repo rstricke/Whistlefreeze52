@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cpvow7sgxi65k"]
+
+[ext_resource type="Script" uid="uid://ds6bm6bfij56y" path="res://scenes/monster.gd" id="1_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://bc8lcgem3vf7t" path="res://art/Player_WalkDown.png" id="2_c47ug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(64, 64)
+
+[node name="Monster" type="CharacterBody2D" unique_id=1328880956]
+script = ExtResource("1_1cbnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=391647121]
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=542223144]
+modulate = Color(1, 0.26000598, 0.2008352, 1)
+texture = ExtResource("2_c47ug")
