@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://do8r25a57gy5j" path="res://scripts/grid.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://by3fotnue6bic" path="res://assets/light_Ball_512.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cpvow7sgxi65k" path="res://scenes/monster.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://f4deo733uyuj" path="res://scenes/wall.tscn" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cq48pk73qg74b" path="res://assets/16x16 house interior/MAIN_ATLAS.png" id="5_tefeu"]
@@ -10,7 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
-[ext_resource type="AudioStream" uid="uid://cp7npelfbkq82" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://dmsrdh6t6at64" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
+
+[sub_resource type="Gradient" id="Gradient_choun"]
+offsets = PackedFloat32Array(0.0007076623, 0.27900955, 0.6988209)
+colors = PackedColorArray(1, 1, 1, 1, 0.6974056, 0.6974056, 0.6974056, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_choun")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ya4ey"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eb6dy"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tefeu")
@@ -2575,7 +2589,9 @@ texture = ExtResource("5_tefeu")
 12:49/0 = 0
 13:49/0 = 0
 14:49/0 = 0
+14:49/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 15:49/0 = 0
+15:49/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_eb6dy")
 16:49/0 = 0
 17:49/0 = 0
 18:49/0 = 0
@@ -2639,8 +2655,11 @@ texture = ExtResource("5_tefeu")
 12:50/0 = 0
 13:50/0 = 0
 14:50/0 = 0
+14:50/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 15:50/0 = 0
+15:50/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 16:50/0 = 0
+16:50/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_eb6dy")
 17:50/0 = 0
 18:50/0 = 0
 19:50/0 = 0
@@ -2701,8 +2720,11 @@ texture = ExtResource("5_tefeu")
 12:51/0 = 0
 13:51/0 = 0
 14:51/0 = 0
+14:51/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_eb6dy")
 15:51/0 = 0
+15:51/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 16:51/0 = 0
+16:51/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_eb6dy")
 17:51/0 = 0
 19:51/0 = 0
 20:51/0 = 0
@@ -2759,8 +2781,11 @@ texture = ExtResource("5_tefeu")
 12:52/0 = 0
 13:52/0 = 0
 14:52/0 = 0
+14:52/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 15:52/0 = 0
+15:52/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 16:52/0 = 0
+16:52/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_eb6dy")
 17:52/0 = 0
 18:52/0 = 0
 19:52/0 = 0
@@ -2823,7 +2848,9 @@ texture = ExtResource("5_tefeu")
 12:53/0 = 0
 13:53/0 = 0
 14:53/0 = 0
+14:53/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 15:53/0 = 0
+15:53/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 16:53/0 = 0
 17:53/0 = 0
 18:53/0 = 0
@@ -2887,7 +2914,9 @@ texture = ExtResource("5_tefeu")
 12:54/0 = 0
 13:54/0 = 0
 14:54/0 = 0
+14:54/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 15:54/0 = 0
+15:54/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ya4ey")
 16:54/0 = 0
 17:54/0 = 0
 18:54/0 = 0
@@ -11125,6 +11154,7 @@ texture = ExtResource("10_choun")
 28:63/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_tefeu"]
+occlusion_layer_0/light_mask = 1
 sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 sources/3 = SubResource("TileSetAtlasSource_eb6dy")
 sources/4 = SubResource("TileSetAtlasSource_trceg")
@@ -11139,9 +11169,9 @@ player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasGroup" unique_id=1222208188]
+visible = false
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
@@ -11166,8 +11196,11 @@ text = "Look for the key"
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1811651063]
 position = Vector2(1, 0)
-energy = 0.44
-texture = ExtResource("2_tefeu")
+energy = 0.6
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_ya4ey")
+texture_scale = 8.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1726134617]
 position_smoothing_enabled = true
@@ -11232,7 +11265,7 @@ tile_set = SubResource("TileSet_tefeu")
 z_index = -1
 position = Vector2(-32, -32)
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAD9//3/AAAaAFoAAAD9//7/AAAaAFsAAAD+//3/AAAbAFoAAAD+//7/AAAbAFsAAAD9/wAAAAAOADQAAAD9/wEAAAAOADUAAAD9/wIAAAAOADYAAAD+/wAAAAAPADQAAAD+/wEAAAAPADUAAAD+/wIAAAAPADYAAAA=")
+tile_map_data = PackedByteArray("AAD9//3/AAAaAFoAAAD9//7/AAAaAFsAAAD+//3/AAAbAFoAAAD+//7/AAAbAFsAAAD9/wAAAAAOADQAAAD9/wEAAAAOADUAAAD+/wAAAAAPADQAAAD+/wEAAAAPADUAAAD+/wIAAAAPADYAAAD9/wIAAAAOADYAAAAFAAAAAAAPADQAAAAEAAAAAAAPADQAAAAEAAEAAAAOADUAAAAFAAEAAAAPADUAAAAEAAIAAAAOADYAAAAFAAIAAAAPADYAAAAEAAQAAAAOADEAAAAFAAQAAAAPADEAAAAEAAUAAAAOADIAAAAEAAYAAAAOADMAAAAFAAUAAAAPADIAAAAFAAYAAAAPADMAAAA=")
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1947548543]
