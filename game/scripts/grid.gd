@@ -28,7 +28,7 @@ func _ready() -> void:
 	astar_grid.cell_size = Vector2(CELL_SIZE, CELL_SIZE)
 	astar_grid.update()
 
-	walls.assign(find_child("Walls").get_children(false))
+	walls.assign(find_child("Obstacles").get_children(false))
 
 	player.walls = walls
 
