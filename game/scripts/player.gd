@@ -24,26 +24,31 @@ var astar_grid: AStarGrid2D
 var door_key: Area2D
 var key_found: bool = false
 
+var is_moving := false
+
 func _process(_delta: float) -> void:
 	if !player_turn:
 		return
 
 	var target_pos: Vector2 = Vector2.INF
 	var new_sprite: CompressedTexture2D
-
-	if Input.is_action_just_pressed("move_up"):
-		target_pos = position + Vector2(0, -cell_size)
-		anim.play("walkUp")
-	elif Input.is_action_just_pressed("move_down"):
-		target_pos = position + Vector2(0, cell_size)
-		anim.play("walkDown")
-	
-	elif Input.is_action_just_pressed("move_left"):
-		target_pos = position + Vector2(-cell_size, 0)
-		anim.play("walkLeft")
-	elif Input.is_action_just_pressed("move_right"):
-		target_pos = position + Vector2(cell_size, 0)
-		anim.play("walkRight")
+	if !is_moving:
+		if Input.is_action_just_pressed("move_up"):
+			target_pos = position + Vector2(0, -cell_size)
+			anim.play("walkUp")
+			is_moving = true
+		elif Input.is_action_just_pressed("move_down"):
+			target_pos = position + Vector2(0, cell_size)
+			anim.play("walkDown")
+			is_moving = true
+		elif Input.is_action_just_pressed("move_left"):
+			target_pos = position + Vector2(-cell_size, 0)
+			anim.play("walkLeft")
+			is_moving = true
+		elif Input.is_action_just_pressed("move_right"):
+			target_pos = position + Vector2(cell_size, 0)
+			anim.play("walkRight")
+			is_moving = true
 
 	if (target_pos != Vector2.INF):
 		
@@ -57,10 +62,12 @@ func _process(_delta: float) -> void:
 		
 		# Attempt to move if the target cell is empty
 		if cell_empty(target_pos):
+			## MOVE
 			var tween = create_tween()
 			tween.tween_property(self, "position", target_pos, 0.5).set_ease(Tween.EASE_IN)
 			tween.tween_callback(anim.stop)
-
+			tween.tween_property(self, "is_moving", false, 0)
+			
 			print("Player at position:", position)
 			end_turn()
 	
