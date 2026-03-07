@@ -20,5 +20,6 @@ texture = ExtResource("2_g2els")
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="WhistleShapeCast" type="ShapeCast2D" parent="." unique_id=2098564873]
+visible = false
 shape = SubResource("RectangleShape2D_qhqgy")
 target_position = Vector2(0, 0)

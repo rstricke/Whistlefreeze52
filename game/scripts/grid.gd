@@ -7,6 +7,8 @@ extends Node2D
 @export var DEBUG_DRAW_FOLLOWS_PLAYER := true
 
 @export var player: Player
+@export var obstacleTileMap: TileMapLayer
+
 var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
@@ -42,6 +44,12 @@ func _ready() -> void:
 	# Mark each cell in the grid with a wall as "solid" (impassable) for the pathfinding
 	for wall in walls:
 		astar_grid.set_point_solid((wall.position / CELL_SIZE).round())
+	
+	# Mark each cell in the obstacle tilemap with a wall as "solid" (impassable) for the pathfinding
+	for tile in obstacleTileMap.get_used_cells():
+		astar_grid.set_point_solid(to_global(tile * CELL_SIZE) / CELL_SIZE)
+
+	player.astar_grid = astar_grid
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

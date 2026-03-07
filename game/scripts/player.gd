@@ -18,6 +18,8 @@ var cell_size := 0
 
 # Used to avoid walking on walls
 var walls: Array[StaticBody2D]
+var astar_grid: AStarGrid2D
+
 var door_key: Area2D
 var text_down = preload("res://assets/player/Player_WalkDown.png")
 var text_up = preload("res://assets/player/Player_WalkUp.png")
@@ -70,7 +72,10 @@ func _process(_delta: float) -> void:
 
 # Checks if a cell does not have a wall in it
 func cell_empty(pos: Vector2) -> bool:
-	return !walls.any(func(wall): return wall.position == pos)
+	var has_wall = walls.any(func(wall): return wall.position == pos)
+	var has_tile = astar_grid.is_point_solid(pos / cell_size)
+
+	return !has_wall && !has_tile
 
 func cell_has_key(pos: Vector2) -> bool:
 	return pos == door_key.global_position
