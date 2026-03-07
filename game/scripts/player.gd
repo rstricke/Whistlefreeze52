@@ -1,26 +1,52 @@
+class_name Player
 extends CharacterBody2D
 
 @export var MAX_SPEED := 300
 @export var ACCELETARION := 1200.0
 @export var FRICTION := 1000
 
+signal TURN_END
 
-var text1 = preload("res://assets/player/Player_WalkDown.png")
-var text2 = preload("res://assets/player/Player_WalkUp.png")
+var player_turn := true
+var cell_size := 0
 
-func _physics_process(delta: float) -> void:
+# Used to avoid walking on walls
+var walls: Array[StaticBody2D]
 
-	var direction := Input.get_vector("move_left","move_right","move_up", "move_down")
-	if direction != Vector2.ZERO:
-		var tg_v = direction * MAX_SPEED
-		velocity =velocity.move_toward(tg_v, ACCELETARION * delta)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+var text_down = preload("res://assets/player/Player_WalkDown.png")
+var text_up = preload("res://assets/player/Player_WalkUp.png")
 
+func _process(_delta: float) -> void:
+	if !player_turn:
+		return
 
-	if direction.y >= 0:
-		$Sprite2D.texture = text1
-	else:
-		$Sprite2D.texture = text2
+	var new_pos: Vector2 = Vector2.INF
+	var new_sprite: CompressedTexture2D
 
-	move_and_slide()
+	if Input.is_action_just_pressed("move_up"):
+		new_pos = position + Vector2(0, -cell_size)
+		new_sprite = text_up
+	elif Input.is_action_just_pressed("move_down"):
+		new_pos = position + Vector2(0, cell_size)
+		new_sprite = text_down
+	elif Input.is_action_just_pressed("move_left"):
+		new_pos = position + Vector2(-cell_size, 0)
+	elif Input.is_action_just_pressed("move_right"):
+		new_pos = position + Vector2(cell_size, 0)
+
+	if (new_pos != Vector2.INF):
+		if cell_empty(new_pos):
+			position = new_pos
+			if new_sprite != null:
+				$Sprite2D.texture = new_sprite
+			end_turn()
+
+func cell_empty(pos: Vector2) -> bool:
+	return !walls.any(func(wall): return wall.position == pos)
+
+func _physics_process(_delta: float) -> void:
+	pass
+
+func end_turn() -> void:
+	player_turn = false
+	TURN_END.emit()
