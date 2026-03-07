@@ -77,7 +77,7 @@ func _on_player_turn_end() -> void:
 	# Let the monsters go when the player turn is over
 	for monster in monsters:
 		# TODO: This delay is temporary for visual effect
-		await get_tree().create_timer(.1).timeout
+		await get_tree().create_timer(.075).timeout
 		monster.move(astar_grid, player.position)
 
 	print("Player turn")

@@ -31,24 +31,21 @@ func _process(_delta: float) -> void:
 		return
 
 	var target_pos: Vector2 = Vector2.INF
+	var animation := ""
 	
 	if !is_moving:
 		if Input.is_action_just_pressed("move_up"):
 			target_pos = position + Vector2(0, -cell_size)
-			anim.play("walkUp")
-			is_moving = true
+			animation = "walkUp"
 		elif Input.is_action_just_pressed("move_down"):
 			target_pos = position + Vector2(0, cell_size)
-			anim.play("walkDown")
-			is_moving = true
+			animation = "walkDown"
 		elif Input.is_action_just_pressed("move_left"):
 			target_pos = position + Vector2(-cell_size, 0)
-			anim.play("walkLeft")
-			is_moving = true
+			animation = "walkLeft"
 		elif Input.is_action_just_pressed("move_right"):
 			target_pos = position + Vector2(cell_size, 0)
-			anim.play("walkRight")
-			is_moving = true
+			animation = "walkRight"
 
 	if (target_pos != Vector2.INF):
 		
@@ -63,13 +60,17 @@ func _process(_delta: float) -> void:
 		# Attempt to move if the target cell is empty
 		if cell_empty(target_pos):
 			## MOVE
+			player_turn = false
+			is_moving = true
+			anim.play(animation)
 			var tween = create_tween()
 			tween.tween_property(self, "position", target_pos, 0.5).set_ease(Tween.EASE_IN)
 			tween.tween_callback(anim.stop)
+			tween.tween_callback(end_turn)
 			tween.tween_property(self, "is_moving", false, 0)
 			
 			print("Player at position:", position)
-			end_turn()
+			#end_turn()
 	
 	if Input.is_action_just_pressed("whistle"):
 		anim.play("whistling")
