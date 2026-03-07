@@ -32,14 +32,9 @@ func _ready() -> void:
 
 	# Get all the "Obstaces" children
 	walls.assign(find_child("Obstacles").get_children(false))
-	# Spawn a key
-	door_key = _spawn_key()
 	
 	# Let the player script know where the walls are so it can't move onto them
 	player.walls = walls
-	
-	# Let the player script know where the key is so it is able to acquire it
-	player.door_key = door_key
 	
 	# Mark each cell in the grid with a wall as "solid" (impassable) for the pathfinding
 	for wall in walls:
@@ -51,6 +46,11 @@ func _ready() -> void:
 
 	player.astar_grid = astar_grid
 
+	# Spawn a key after the cells have been marked as solid
+	door_key = _spawn_key()
+	# Let the player script know where the key is so it is able to acquire it
+	player.door_key = door_key
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
