@@ -14,6 +14,8 @@ extends Node2D
 
 @export var monsterScene: PackedScene
 
+@export var monsterSpawnChance := 1.0
+
 var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
@@ -120,12 +122,13 @@ func _spawn_key():
 	return new_key
 
 func spawn_monster():
-	var pos = get_random_walkable_point()
-	var monster: Monster = monsterScene.instantiate() as Monster
-	monster.position = pos
-	find_child("Monsters").add_child(monster)
-	monster.cell_size = CELL_SIZE
-	monsters.append(monster)
+	if randf() >= monsterSpawnChance:
+		var pos = get_random_walkable_point()
+		var monster: Monster = monsterScene.instantiate() as Monster
+		monster.position = pos
+		find_child("Monsters").add_child(monster)
+		monster.cell_size = CELL_SIZE
+		monsters.append(monster)
 
 	
 func get_random_walkable_point() -> Vector2:

@@ -11140,6 +11140,7 @@ obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")
 unlockedDoor = NodePath("DoorContainer/Unlocked")
 monsterScene = ExtResource("3_sugp2")
+monsterSpawnChance = 0.5
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
 
