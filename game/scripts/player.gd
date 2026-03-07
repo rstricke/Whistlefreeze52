@@ -46,6 +46,7 @@ func _process(_delta: float) -> void:
 			position = new_pos
 			if new_sprite != null:
 				$Sprite2D.texture = new_sprite
+			print("Player at position:", position)
 			end_turn()
 	
 	if Input.is_action_just_pressed("whistle"):
