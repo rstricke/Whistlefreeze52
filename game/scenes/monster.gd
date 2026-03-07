@@ -16,8 +16,13 @@ func move(astar_grid: AStarGrid2D, target: Vector2):
 	# This code moves the monster towards the player, using the pathfinding algorithm
 	var path = astar_grid.get_id_path(position / cell_size, target / cell_size)
 	if path.size() > 1: # index 0 is current position
-		position = path[1] * cell_size
-	
-	# The monster has reached the player!
-	if position == target:
-		print("ded")
+		var new_pos: Vector2 = path[1] * cell_size
+
+		if (new_pos == target):
+			attack(target)
+			return
+		
+		position = new_pos 
+
+func attack(player_pos: Vector2):
+	print("Attack!")
