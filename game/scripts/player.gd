@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 			is_moving = true
 			anim.play(animation)
 			var tween = create_tween()
-			tween.tween_property(self, "position", target_pos, 0.5).set_ease(Tween.EASE_IN)
+			tween.tween_property(self, "position", target_pos, 0.2).set_ease(Tween.EASE_IN)
 			tween.tween_callback(anim.stop)
 			tween.tween_callback(end_turn)
 			tween.finished.connect(func(): is_moving = false)
