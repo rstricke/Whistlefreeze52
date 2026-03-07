@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 		return
 
 	var target_pos: Vector2 = Vector2.INF
-	var new_sprite: CompressedTexture2D
+	
 	if !is_moving:
 		if Input.is_action_just_pressed("move_up"):
 			target_pos = position + Vector2(0, -cell_size)
