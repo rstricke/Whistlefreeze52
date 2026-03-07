@@ -7,14 +7,19 @@ extends Node2D
 @export var DEBUG_DRAW_FOLLOWS_PLAYER := true
 
 @export var player: Player
-@export var monster: Monster
+var monsters: Array[Monster]
 
 var astar_grid: AStarGrid2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.cell_size = CELL_SIZE
-	monster.cell_size = CELL_SIZE
+	
+	monsters.assign(find_child("Monsters").get_children(true))
+
+	for monster in monsters:
+		monster.cell_size = CELL_SIZE
+
 	astar_grid = AStarGrid2D.new()
 	
 	# Top left corner + width and height
@@ -48,9 +53,11 @@ func _draw() -> void:
 func _on_player_turn_end() -> void:
 	print("Turn ended. Monsters turn")
 
-	await get_tree().create_timer(.25).timeout
+	for monster in monsters:
+		# TODO: This delay is temporary for visual effect
+		await get_tree().create_timer(.1).timeout
+		monster.move(astar_grid, player.position)
 
-	monster.move(astar_grid, player.position)
-
+	print("Player turn")
 	player.player_turn = true
 	queue_redraw()
