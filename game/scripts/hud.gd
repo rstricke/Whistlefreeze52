@@ -1,16 +1,54 @@
 extends Control
 
+## Menus
 @onready var main_menu: Control = $MainMenu
 @onready var game_menu: Control = $GameMenu
-@onready var hearts = $GameMenu/Hearts.get_children()
-
-
 var current_menu: Control
+
+
+
+## HEARTS
+@onready var hearts_container = $GameMenu/Hearts
+@export var h_full: AtlasTexture
+@export var h_half: AtlasTexture
+@export var h_empty: AtlasTexture
+
+
+
 
 func _ready() -> void:
 	GameManager.hud = self
 	current_menu = main_menu
 
+	create_hearts(GameManager.max_hp)
+	# Signal Gamemanager
+	
+	GameManager.health_changed.connect(update_hearts)
+	update_hearts(GameManager.hp, GameManager.max_hp)
+	
+	
+func create_hearts(max_health):
+
+	var heart_count = int(ceil(max_health / 2.0))
+
+	for i in range(heart_count):
+		var heart = TextureRect.new()
+		heart.texture = h_empty
+		heart.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		heart.stretch_mode = TextureRect.STRETCH_KEEP
+		heart.custom_minimum_size = Vector2(32,32)
+		hearts_container.add_child(heart)	
+	
+func update_hearts(health, max_health):
+	var hearts = hearts_container.get_children()
+	for i in range(hearts.size()):
+		var value = i * 2
+		if health >= value + 2:
+			hearts[i].texture = h_full
+		elif health == value + 1:
+			hearts[i].texture = h_half
+		else:
+			hearts[i].texture = h_empty
 
 
 func play():
