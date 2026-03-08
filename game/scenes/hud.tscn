@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://j4n035g6mq05" path="res://scripts/hud.gd" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://c5is14ti1spl2" path="res://assets/hearts/hearts/heartDisplay.png" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://djds2b5h1k7nm" path="res://assets/gui/FreeHorrorUi.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://cxe2r1en3e65j" path="res://assets/whistle.png" id="4_6fi6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pdws"]
 atlas = ExtResource("2_5ysmq")
@@ -34,11 +35,7 @@ region = Rect2(64, 192, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mphia"]
 atlas = ExtResource("2_oo0fn")
-region = Rect2(17, 2, 14, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0m4u7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apjy4"]
+region = Rect2(17, 34, 14, 13)
 
 [node name="HUD" type="Control" unique_id=873675742]
 layout_mode = 3
@@ -60,8 +57,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="MainMenu" unique_id=1579082946]
 
 [node name="PlayButton" type="TextureButton" parent="MainMenu" unique_id=897915002]
 layout_mode = 0
@@ -111,18 +106,24 @@ offset_top = 8.0
 offset_right = 184.0
 offset_bottom = 48.0
 
-[node name="Panel" type="Panel" parent="GameMenu" unique_id=1495864507]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sprite2D" type="Sprite2D" parent="GameMenu" unique_id=976650929]
+position = Vector2(1199.9999, 623.99994)
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_mphia")
 
-[node name="TextureButton" type="TextureButton" parent="GameMenu/Panel" unique_id=1430108874]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = SubResource("AtlasTexture_mphia")
-texture_pressed = SubResource("AtlasTexture_0m4u7")
-texture_hover = SubResource("AtlasTexture_apjy4")
+[node name="Sprite2D" type="Sprite2D" parent="GameMenu/Sprite2D" unique_id=1579082946]
+position = Vector2(1.2207031e-05, 6.1035157e-06)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_6fi6k")
+
+[node name="WhistleBar" type="ProgressBar" parent="GameMenu/Sprite2D/Sprite2D" unique_id=521934589]
+modulate = Color(0, 0, 0, 1)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 13.0
+fill_mode = 3
+show_percentage = false
 
 [connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
 [connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]

@@ -111,6 +111,7 @@ func _physics_process(_delta: float) -> void:
 
 func end_turn() -> void:
 	whistle_cd -= 1
+	GameManager.update_whistle(whistle_cd,whistle_cd_base)
 	player_turn = false
 	TURN_END.emit()
 	

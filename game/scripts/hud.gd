@@ -14,6 +14,7 @@ var current_menu: Control
 @export var h_empty: AtlasTexture
 
 
+@onready var whistle_bar: ProgressBar = $GameMenu/Sprite2D/Sprite2D/WhistleBar
 
 
 func _ready() -> void:
@@ -51,6 +52,9 @@ func update_hearts(health, max_health):
 			hearts[n-i-1].texture = h_half
 		else:
 			hearts[n-i-1].texture = h_empty
+
+func update_whistle(current, max_whistle):
+	whistle_bar.value = current * 100 / max_whistle
 
 
 func play():

@@ -19,3 +19,6 @@ func heal(amount):
 	hp += amount
 	hp = clamp(hp, 0, max_hp)
 	health_changed.emit(hp,max_hp)
+	
+func update_whistle(current, maxi):
+	hud.update_whistle(current, maxi)
