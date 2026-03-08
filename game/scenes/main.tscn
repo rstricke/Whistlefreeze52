@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://by3fotnue6bic" path="res://assets/light_Ball_512.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cpvow7sgxi65k" path="res://scenes/monster.tscn" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://c2hoytqw8r1ll" path="res://assets/whistle.png" id="4_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://cxe2r1en3e65j" path="res://assets/whistle.png" id="4_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cq48pk73qg74b" path="res://assets/16x16 house interior/MAIN_ATLAS.png" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://f4deo733uyuj" path="res://scenes/wall.tscn" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://j6xma7mijoq5" path="res://assets/16x16 house interior/2_ebony.png" id="7_85g3d"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://1nj5xy1uhpnu" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
 [ext_resource type="AudioStream" uid="uid://df34quba2vqx5" path="res://assets/audio/horror2theme.ogg" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cshfo7d4o2suo" path="res://scenes/hud.tscn" id="13_trceg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tefeu")
@@ -11265,6 +11266,7 @@ monsterScene = ExtResource("3_sugp2")
 monsterSpawnChance = 0.3
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasGroup" unique_id=1222208188]
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
@@ -11406,6 +11408,10 @@ z_index = -10
 position = Vector2(97.0002, 29.000168)
 scale = Vector2(3524.0002, 2808)
 texture = SubResource("CanvasTexture_eb6dy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1834073377]
+
+[node name="HUD" parent="CanvasLayer" unique_id=873675742 instance=ExtResource("13_trceg")]
 
 [connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
 [connection signal="UNLOCK_DOOR" from="Player" to="." method="unlock_door"]
