@@ -33,9 +33,15 @@ script = ExtResource("1_ekxnf")
 layout_mode = 0
 offset_left = 512.0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 offset_top = 176.0
 offset_right = 576.0
 offset_bottom = 208.0
+=======
+offset_top = 222.0
+offset_right = 576.0
+offset_bottom = 254.0
+>>>>>>> Stashed changes
 =======
 offset_top = 222.0
 offset_right = 576.0
