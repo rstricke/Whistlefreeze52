@@ -160,7 +160,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fulsm")
 }],
-"loop": true,
+"loop": false,
 "name": &"hitDown",
 "speed": 5.0
 }, {
@@ -177,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a38lo")
 }],
-"loop": true,
+"loop": false,
 "name": &"hitUp",
 "speed": 5.0
 }, {
@@ -194,7 +194,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ujl30")
 }],
-"loop": true,
+"loop": false,
 "name": &"walkDown",
 "speed": 7.0
 }, {
@@ -211,7 +211,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wqfne")
 }],
-"loop": true,
+"loop": false,
 "name": &"walkLeft",
 "speed": 7.0
 }, {
@@ -228,7 +228,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_md1ol")
 }],
-"loop": true,
+"loop": false,
 "name": &"walkRight",
 "speed": 7.0
 }, {
@@ -245,7 +245,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t4otl")
 }],
-"loop": true,
+"loop": false,
 "name": &"walkUp",
 "speed": 7.0
 }, {
@@ -298,7 +298,7 @@ whistle_cast = NodePath("WhistleShapeCast")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1853629284]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_u2ulf")
-animation = &"whistling"
+animation = &"hitDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207697494]
 shape = SubResource("RectangleShape2D_g2els")

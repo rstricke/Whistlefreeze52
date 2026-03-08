@@ -19,6 +19,8 @@ var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
 var door_key: Area2D
+var fading := false
+var fade_speed := 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,7 +67,12 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if fading:
+		var fade_rect = $Player/CanvasLayer/FadeRect
+		fade_rect.color.a += fade_speed * _delta
+
+		if fade_rect.color.a >= 1:
+			get_tree().change_scene_to_file("res://Victory.tscn")
 
 # Used to draw the grid. It's useful for visualization, but can be turned off
 func _draw() -> void:
@@ -157,4 +164,4 @@ func get_random_walkable_point() -> Vector2:
 
 func _on_win_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("Winner!")
+		fading = true
