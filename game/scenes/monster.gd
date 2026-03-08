@@ -6,6 +6,14 @@ var cell_size := 0
 
 var stun_timer := 0
 
+
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	anim.play("idle")
+
+
 func move(astar_grid: AStarGrid2D, target: Vector2):
 	# Stunned! Decrease the timer and exit
 	if stun_timer > 0:
@@ -17,12 +25,31 @@ func move(astar_grid: AStarGrid2D, target: Vector2):
 	var path = astar_grid.get_id_path(position / cell_size, target / cell_size)
 	if path.size() > 1: # index 0 is current position
 		var new_pos: Vector2 = path[1] * cell_size
-
+		
 		if (new_pos == target):
 			attack(target)
 			return
 		
-		position = new_pos 
+		# Setup Animation
+		var tween = create_tween()
+		var dir = (new_pos-position).normalized()
+		set_up_animation(dir)
+		tween.tween_property(self,"position",new_pos,0.2)
+		
 
 func attack(player_pos: Vector2):
 	print("Attack!")
+	anim.play("attack")
+
+
+func set_up_animation(dir):
+	match dir:
+		Vector2(1,0):
+			anim.play("walkRight")
+		Vector2(-1,0):
+			anim.play("walkLeft")
+		Vector2(0,1):
+			anim.play("walkDown")
+		Vector2(0,-1):
+			anim.play("walkUp")
+	
