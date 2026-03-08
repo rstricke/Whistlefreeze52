@@ -109,7 +109,6 @@ func _on_player_turn_end() -> void:
 	for monster in monsters:
 		# Mark the monsters old square as walkable
 		astar_grid.set_point_solid(monster.position / CELL_SIZE, false)
-
 		# TODO: This delay is temporary for visual effect
 		await get_tree().create_timer(.075).timeout
 		monster.move(astar_grid, player.position)
@@ -119,6 +118,9 @@ func _on_player_turn_end() -> void:
 
 		if monster.player_turn_delay > player_turn_delay:
 			player_turn_delay = monster.player_turn_delay
+		if (monster.stun_timer > 0):
+			# Mark the monsters new square as walkable if stunned
+			astar_grid.set_point_solid(monster.new_pos / CELL_SIZE, false)
 
 	# Let monster attack animations finish playing before we can move again
 	await get_tree().create_timer(player_turn_delay).timeout
