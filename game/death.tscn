@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b0jprambvache"]
+
+[ext_resource type="Texture2D" uid="uid://dm6gsluhxyaib" path="res://assets/deathscreen.png" id="1_qemge"]
+
+[node name="Control" type="Control" unique_id=2025806062]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=725752939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Deathscreen" type="Sprite2D" parent="." unique_id=265718528]
+position = Vector2(620, 329)
+scale = Vector2(4, 4)
+texture = ExtResource("1_qemge")

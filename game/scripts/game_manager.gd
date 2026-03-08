@@ -8,17 +8,21 @@ var player: Player
 var hp := 0 #Current Hp
 
 
+func die():
+	get_tree().change_scene_to_file("res://death.tscn")
 
 
 func damage(amount):
 	hp -= amount
 	hp = clamp(hp, 0, max_hp)
 	health_changed.emit(hp,max_hp)
+	if hp <= 0:
+		die()
 	
 func heal(amount):
 	hp += amount
 	hp = clamp(hp, 0, max_hp)
 	health_changed.emit(hp,max_hp)
 	
-func update_whistle(current, maxi):
-	hud.update_whistle(current, maxi)
+func update_whistle(current, max_whistle):
+	hud.update_whistle(current, max_whistle)

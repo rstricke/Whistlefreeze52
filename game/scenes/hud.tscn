@@ -17,22 +17,6 @@ region = Rect2(198, 6, 84, 78)
 atlas = ExtResource("2_5ysmq")
 region = Rect2(102, 6, 84, 78)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ysmq"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(0, 128, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fi6k"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(64, 128, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uo2fv"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(0, 192, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_047uy"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(64, 192, 64, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mphia"]
 atlas = ExtResource("2_oo0fn")
 region = Rect2(17, 34, 14, 13)
@@ -48,47 +32,6 @@ script = ExtResource("1_ahhtf")
 h_full = SubResource("AtlasTexture_5pdws")
 h_half = SubResource("AtlasTexture_hd3ao")
 h_empty = SubResource("AtlasTexture_0i1j5")
-
-[node name="MainMenu" type="Control" parent="." unique_id=1257107053]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PlayButton" type="TextureButton" parent="MainMenu" unique_id=897915002]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 176.0
-offset_right = 576.0
-offset_bottom = 208.0
-scale = Vector2(4, 4)
-texture_normal = SubResource("AtlasTexture_5ysmq")
-texture_pressed = SubResource("AtlasTexture_6fi6k")
-
-[node name="ExitMenu" type="TextureButton" parent="MainMenu" unique_id=952273955]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 296.0
-offset_right = 576.0
-offset_bottom = 336.0
-scale = Vector2(4, 4)
-texture_normal = SubResource("AtlasTexture_uo2fv")
-texture_pressed = SubResource("AtlasTexture_047uy")
-
-[node name="Label" type="Label" parent="MainMenu" unique_id=1478962220]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -211.0
-offset_right = 211.0
-offset_bottom = 88.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "Whistlefreeze"
 
 [node name="GameMenu" type="Control" parent="." unique_id=495368810]
 layout_mode = 1
@@ -124,6 +67,3 @@ offset_right = 14.0
 offset_bottom = 13.0
 fill_mode = 3
 show_percentage = false
-
-[connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
-[connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]

@@ -1,10 +1,8 @@
 extends Control
 
 ## Menus
-@onready var main_menu: Control = $MainMenu
-@onready var game_menu: Control = $GameMenu
-var current_menu: Control
 
+@onready var game_menu: Control = $GameMenu
 
 
 ## HEARTS
@@ -19,7 +17,7 @@ var current_menu: Control
 
 func _ready() -> void:
 	GameManager.hud = self
-	current_menu = main_menu
+	
 
 	create_hearts(GameManager.max_hp)
 	# Signal Gamemanager
@@ -38,7 +36,6 @@ func create_hearts(max_health):
 		heart.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		heart.stretch_mode = TextureRect.STRETCH_KEEP
 		heart.custom_minimum_size = Vector2(80,80)
-		
 		hearts_container.add_child(heart)	
 	
 func update_hearts(health, max_health):
@@ -55,16 +52,6 @@ func update_hearts(health, max_health):
 
 func update_whistle(current, max_whistle):
 	whistle_bar.value = current * 100 / max_whistle
-
-
-func play():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
-	
-
-func switch_gui(menu: Control):
-	current_menu.set_deferred("visible", false)
-	current_menu = menu
-	current_menu.set_deferred("visible", true)
 
 
 func _on_exit_menu_pressed() -> void:
