@@ -1723,10 +1723,8 @@ script = ExtResource("1_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1201531593]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 56.0
-offset_right = 1306.0
-offset_bottom = 776.0
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = SubResource("GradientTexture2D_gw5y6")
 
 [node name="Main" type="Control" parent="." unique_id=1586196316]
@@ -1843,7 +1841,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_iyc35")
 animation = &"walkLeft"
 autoplay = "walkLeft"
-frame_progress = 0.27838615
+frame_progress = 0.59064245
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Tutorial" unique_id=786542530]
 position = Vector2(370.00003, 244)
@@ -1851,7 +1849,7 @@ scale = Vector2(2.7500002, 2.5625002)
 sprite_frames = SubResource("SpriteFrames_y2w2k")
 animation = &"walkLeft"
 autoplay = "walkLeft"
-frame_progress = 0.34374005
+frame_progress = 0.041341748
 
 [node name="Label" type="Label" parent="Tutorial" unique_id=928353951]
 layout_mode = 0
@@ -1876,7 +1874,7 @@ position = Vector2(377, 446.00003)
 scale = Vector2(2.25, 1.8125001)
 sprite_frames = SubResource("SpriteFrames_6tpeu")
 autoplay = "default"
-frame_progress = 0.44500262
+frame_progress = 0.14260444
 
 [node name="Whistle" type="Sprite2D" parent="Tutorial" unique_id=1615813849]
 position = Vector2(824, 257)
