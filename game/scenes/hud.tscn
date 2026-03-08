@@ -12,14 +12,22 @@ grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
 [node name="MainMenu" type="Control" parent="." unique_id=1257107053]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenu" unique_id=1579082946]
 
 [node name="PlayButton" type="TextureButton" parent="MainMenu" unique_id=897915002]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.35
+anchor_right = 0.5
+anchor_bottom = 0.51
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -28,8 +36,23 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="MainMenu" unique_id=1478962220]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_right = 211.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Whistlefreeze"
+
 [node name="GameMenu" type="Control" parent="." unique_id=495368810]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
