@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://cshfo7d4o2suo"]
 
 [ext_resource type="Script" uid="uid://j4n035g6mq05" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://c5is14ti1spl2" path="res://assets/hearts/hearts/heartDisplay.png" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://djds2b5h1k7nm" path="res://assets/gui/FreeHorrorUi.png" id="2_oo0fn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oo0fn"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(135, 105, 18, 15)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pdws"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(167, 105, 18, 15)
+atlas = ExtResource("2_5ysmq")
+region = Rect2(6, 6, 84, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hd3ao"]
-atlas = ExtResource("2_oo0fn")
-region = Rect2(199, 105, 18, 15)
+atlas = ExtResource("2_5ysmq")
+region = Rect2(198, 6, 84, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i1j5"]
+atlas = ExtResource("2_5ysmq")
+region = Rect2(102, 6, 84, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ysmq"]
 atlas = ExtResource("2_oo0fn")
@@ -39,9 +40,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
-h_full = SubResource("AtlasTexture_oo0fn")
-h_half = SubResource("AtlasTexture_5pdws")
-h_empty = SubResource("AtlasTexture_hd3ao")
+h_full = SubResource("AtlasTexture_5pdws")
+h_half = SubResource("AtlasTexture_hd3ao")
+h_empty = SubResource("AtlasTexture_0i1j5")
 
 [node name="MainMenu" type="Control" parent="." unique_id=1257107053]
 visible = false
@@ -98,7 +99,6 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 104.0
 offset_bottom = 40.0
-scale = Vector2(3, 3)
 
 [connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
 [connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]
