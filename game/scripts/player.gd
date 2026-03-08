@@ -31,8 +31,8 @@ var key_found: bool = false
 var is_moving := false
 
 func _ready():
-	#GameManager.player = self
-	pass
+	GameManager.hp = GameManager.max_hp
+	
 
 
 func _process(_delta: float) -> void:

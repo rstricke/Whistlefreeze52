@@ -96,9 +96,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Hearts" type="HBoxContainer" parent="GameMenu" unique_id=612690310]
+layout_direction = 3
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 40.0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 48.0
 
 [connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
 [connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]
