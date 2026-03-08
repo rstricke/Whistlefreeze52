@@ -79,5 +79,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GameMenu" unique_id=931429307]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
 [connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]
