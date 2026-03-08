@@ -2,6 +2,7 @@ extends Control
 
 @onready var main_menu: Control = $MainMenu
 @onready var game_menu: Control = $GameMenu
+@onready var hearts = $GameMenu/Hearts.get_children()
 
 
 var current_menu: Control
