@@ -19,6 +19,21 @@ region = Rect2(0, 192, 64, 32)
 atlas = ExtResource("2_oo0fn")
 region = Rect2(64, 192, 64, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo0fn"]
+atlas = ExtResource("2_oo0fn")
+region = Rect2(128, 96, 32, 32)
+margin = Rect2(-5, 0, -10, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pdws"]
+atlas = ExtResource("2_oo0fn")
+region = Rect2(160, 96, 32, 32)
+margin = Rect2(-5, 0, -10, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd3ao"]
+atlas = ExtResource("2_oo0fn")
+region = Rect2(192, 96, 32, 32)
+margin = Rect2(-5, 0, -10, 0)
+
 [node name="HUD" type="Control" unique_id=873675742]
 layout_mode = 3
 anchors_preset = 15
@@ -29,6 +44,7 @@ grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
 [node name="MainMenu" type="Control" parent="." unique_id=1257107053]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,7 +87,6 @@ theme_override_font_sizes/font_size = 64
 text = "Whistlefreeze"
 
 [node name="GameMenu" type="Control" parent="." unique_id=495368810]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,10 +94,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="GameMenu" unique_id=931429307]
+[node name="Hearts" type="HBoxContainer" parent="GameMenu" unique_id=612690310]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 104.0
 offset_bottom = 40.0
+scale = Vector2(3, 3)
+
+[node name="TextureRect" type="TextureRect" parent="GameMenu/Hearts" unique_id=633952568]
+layout_mode = 2
+texture = SubResource("AtlasTexture_oo0fn")
+
+[node name="TextureRect2" type="TextureRect" parent="GameMenu/Hearts" unique_id=673031052]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5pdws")
+
+[node name="TextureRect3" type="TextureRect" parent="GameMenu/Hearts" unique_id=1718974321]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hd3ao")
 
 [connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
 [connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]
