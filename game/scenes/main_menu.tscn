@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://cpan8x2p1d8ol"]
 
-[ext_resource type="Script" uid="uid://rx068ss4lrgh" path="res://scripts/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://djds2b5h1k7nm" path="res://assets/gui/FreeHorrorUi.png" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://5ldyxex3sk7o" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bkvlb42qhj4ek" path="res://assets/gui/FreeHorrorUi.png" id="2_bqqt6"]
 [ext_resource type="FontFile" uid="uid://meno8d5wi56h" path="res://runescape_uf.ttf" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://d1qbecmsmi2hk" path="res://assets/16x16 house interior/essentials_A2.png" id="4_wu84c"]
-[ext_resource type="Texture2D" uid="uid://mkaw0gn786wv" path="res://assets/Enemy/Spectre_Attack.png" id="5_oa1go"]
-[ext_resource type="Texture2D" uid="uid://cdg0w78dqin3m" path="res://assets/Enemy/Spectre_Idle.png" id="6_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://dxqcje0m1l6a1" path="res://assets/Enemy/Spectre_Move.png" id="7_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://cihkfwbtdsfk0" path="res://assets/player/Player_HitDown.png" id="8_1ajci"]
-[ext_resource type="Texture2D" uid="uid://06leeyixegvo" path="res://assets/player/Player_HitUp.png" id="9_7b55j"]
+[ext_resource type="Texture2D" uid="uid://khn45iyjpfu4" path="res://assets/Enemy/Spectre_Attack.png" id="5_oa1go"]
+[ext_resource type="Texture2D" uid="uid://di0o3o2ta5di7" path="res://assets/Enemy/Spectre_Idle.png" id="6_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://d1gn08k1odece" path="res://assets/Enemy/Spectre_Move.png" id="7_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://qp2q53245c5q" path="res://assets/player/Player_HitDown.png" id="8_1ajci"]
+[ext_resource type="Texture2D" uid="uid://ckjxkheuv3na4" path="res://assets/player/Player_HitUp.png" id="9_7b55j"]
 [ext_resource type="Texture2D" uid="uid://bd6dhau4taxvs" path="res://assets/player/Player_WalkDown-Sheet.png" id="10_5pajh"]
 [ext_resource type="Texture2D" uid="uid://omdmo8l3wbr" path="res://assets/player/Player_WalkLeft-Sheet.png" id="11_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cf20nusx7osc6" path="res://assets/player/Player_WalkRight-Sheet1.png" id="12_a8gd2"]
@@ -1004,5 +1004,13 @@ sprite_frames = SubResource("SpriteFrames_gw5y6")
 animation = &"walkLeft"
 autoplay = "walkLeft"
 frame_progress = 0.83945286
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1466761763]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 190.0
+offset_right = 708.0
+offset_bottom = 235.0
+text = "Press F to Whistle"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
