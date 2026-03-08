@@ -90,7 +90,7 @@ func _process(_delta: float) -> void:
 		for i in whistle_cast.get_collision_count():
 			var obj = whistle_cast.get_collider(i)
 			if obj is Monster:
-				obj.stun_timer = 10
+				obj.stun_timer = 7
 				print("Stunning monster!")
 		end_turn()
 
