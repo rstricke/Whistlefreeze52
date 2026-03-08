@@ -1,6 +1,8 @@
 class_name Monster
 extends CharacterBody2D
 
+@export var freeze_color: Color
+
 # Used to determine how far to move for each button press
 var cell_size := 0
 
@@ -24,7 +26,10 @@ func move(astar_grid: AStarGrid2D, target: Vector2):
 	# Stunned! Decrease the timer and exit
 	if stun_timer > 0:
 		stun_timer -= 1
+		modulate = freeze_color
 		return
+	modulate = Color.WHITE
+
 	# TODO: Dividing and multiplying by cell_size works, but is odd
 	# There's probably an astar API that takes cell size into account
 	# This code moves the monster towards the player, using the pathfinding algorithm

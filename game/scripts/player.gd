@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var whistle_cast: ShapeCast2D
 @export var whistle_cd_base := 3
 @export var whistle_cd := 0
+@export var whistle_stun_turns := 7
 
 const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -90,7 +91,7 @@ func _process(_delta: float) -> void:
 		for i in whistle_cast.get_collision_count():
 			var obj = whistle_cast.get_collider(i)
 			if obj is Monster:
-				obj.stun_timer = 7
+				obj.stun_timer = whistle_stun_turns
 				print("Stunning monster!")
 		end_turn()
 

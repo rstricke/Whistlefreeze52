@@ -11253,7 +11253,6 @@ script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
 GRID_SIZE_X = 21
 GRID_SIZE_Y = 20
-DEBUG_DRAW = true
 DEBUG_DRAW_FOLLOWS_PLAYER = false
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")

@@ -422,6 +422,7 @@ animations = [{
 
 [node name="Monster" type="CharacterBody2D" unique_id=1328880956]
 script = ExtResource("1_1cbnp")
+freeze_color = Color(0, 0.15658063, 0.99999994, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=391647121]
 shape = SubResource("RectangleShape2D_sugp2")
