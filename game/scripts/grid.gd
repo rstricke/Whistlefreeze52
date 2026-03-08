@@ -16,6 +16,7 @@ extends Node2D
 @export var monsterScene: PackedScene
 @export var monsterSpawnChance := 1.0
 
+@onready var sfx_main_music = $Audio/sfx_main_music
 var monsters: Array[Monster]
 var walls: Array[StaticBody2D]
 var astar_grid: AStarGrid2D
@@ -70,6 +71,8 @@ func _ready() -> void:
 	player.door_key = door_key
 
 	lock_door()
+	
+	sfx_main_music.play()
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

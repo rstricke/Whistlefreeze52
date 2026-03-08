@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
-[ext_resource type="AudioStream" uid="uid://dmsrdh6t6at64" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://dce4sphjle6vk" path="res://assets/audio/horror2theme.ogg" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tefeu")
@@ -11250,9 +11250,8 @@ size = Vector2(10, 10)
 [node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
-GRID_SIZE_X = 21
-GRID_SIZE_Y = 20
-DEBUG_DRAW_FOLLOWS_PLAYER = false
+GRID_SIZE = 19
+DEBUG_DRAW = true
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")
@@ -11261,14 +11260,13 @@ monsterScene = ExtResource("3_sugp2")
 monsterSpawnChance = 0.3
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasGroup" unique_id=1222208188]
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
-position = Vector2(64, 0)
-whistle_cd_base = 0
+position = Vector2(64, -8)
+whistle_cd_base = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=958951663]
 
@@ -11342,9 +11340,6 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAD4//b/BgACABcAAAD5//b/BgACABcAAAD6//b/BgACABQAAAD7//b/BgACABcAAAD8//b/BgACABcAAAD9//b/BgACABcAAAD+//b/BgACABcAAAD///b/BgACABcAAAAAAPb/BgACABcAAAABAPb/BgACABcAAAACAPb/BgACABcAAAADAPb/BgACABcAAAAEAPb/BgACABcAAAAFAPb/BgACABcAAAAGAPb/BgACABcAAAAHAPb/BgACABcAAAAIAPb/BgACABQAAAAJAPb/BgACABcAAAD4/wkABgACABcAAAD5/wkABgACABcAAAD6/wkABgACABcAAAD7/wkABgACABcAAAD8/wkABgACABcAAAD9/wkABgACABcAAAD+/wkABgACABcAAAD//wkABgACABcAAAAAAAkABgACABcAAAABAAkABgACABcAAAACAAkABgACABcAAAADAAkABgACABcAAAAEAAkABgACABcAAAAFAAkABgACABcAAAAGAAkABgACABcAAAAHAAkABgACABcAAAAIAAkABgACABcAAAAJAAkABgACABcAAAD3//b/BgABABQAAAAKAPb/BgADABQAAAAKAPf/BgAAABUAAAAKAPj/BgAAABUAAAAKAPn/BgAAABUAAAAKAPr/BgAAABUAAAAKAPv/BgADABUAAAAKAPz/BgADABUAAAAKAP3/BgADABUAAAAKAP7/BgADABUAAAAKAP//BgADABUAAAAKAAAABgADABUAAAD3//f/BgABABUAAAD3//j/BgABABUAAAD3//n/BgABABUAAAD3//r/BgABABUAAAD3//v/BgABABUAAAD3//z/BgABABUAAAD3//3/BgABABUAAAD3//7/BgABABUAAAD3////BgABABUAAAD3/wAABgABABUAAAD3/wEABgABABUAAAD3/wIABgABABQAAAD4/wIABgACABQAAAD6/wIABgACABQAAAD7/wIABgADABQAAAD7/wMABgADABUAAAD7/wQABgADABUAAAD7/wUABgADABYAAAD6/wUABgADABYAAAD5/wUABgADABYAAAD3/wMABgABABUAAAD3/wQABgABABUAAAD3/wUABgABABUAAAD3/wYABgABABUAAAD3/wcABgABABUAAAD3/wgABgABABUAAAD3/wkABgABABcAAAD6/wcABgADABQAAAD6/wgABgAAABUAAAD5/wcABgACABcAAAAKAAEABgADABUAAAAKAAIABgADABUAAAAKAAMABgADABUAAAAKAAQABgADABUAAAAKAAUABgADABUAAAAKAAYABgADABUAAAAKAAcABgADABUAAAAKAAgABgADABUAAAAKAAkABgADABcAAAD7//7/BgACABQAAAD7////BgAAABUAAAD7/wEABgABABUAAAD6//7/BgACABcAAAD5//7/BgACABQAAAD5////BgAAABUAAAD5/wAABgAAABYAAAD9//7/BgACABcAAAD+//7/BgACABcAAAD+//v/BgADABQAAAD9//v/BgACABcAAAD8//v/BgACABcAAAD6//v/BgADABYAAAD5//v/BgACABcAAAD4//v/BgABABcAAAAAAAIABgACABcAAAACAAIABgACABQAAAADAAIABgACABcAAAD//wIABgABABUAAAD//wEABgADABQAAAD/////BgABABYAAAD///7/BgADABQAAAADAAEABgAAABUAAAADAAAABgAAABUAAAADAP//BgAAABQAAAAAAP//BgACABcAAAABAP//BgADABcAAAABAP3/BgADABUAAAD///3/BgAAABUAAAD///z/BgABABUAAAABAPz/BgADABUAAAAAAPz/BgACABUAAAD///v/BgABABQAAAAAAPv/BgACABQAAAABAPv/BgADABQAAAD//wMABgAAABUAAAD//wQABgADABYAAAD+/wQABgACABcAAAD9/wQABgACABcAAAD+/wEABgACABQAAAD8/wEABgADABcAAAD9/wcABgABABYAAAD9/wYABgADABQAAAD8/wYABgABABcAAAD6//r/BgAAABQAAAD6//j/BgAAABYAAAD+//n/BgAAABQAAAD+//r/BgAAABUAAAABAPj/BgAAABQAAAABAPn/BgABABYAAAD//wcABgACABcAAAAAAAcABgADABYAAAAAAAYABgABABQAAAABAAYABgACABQAAAACAAYABgACABcAAAACAAMABgAAABUAAAACAAQABgAAABYAAAAIAPj/BgAAABUAAAAIAPn/BgADABYAAAAIAPv/BgACABcAAAAIAPf/BgAAABUAAAD6//f/BgAAABUAAAACAPn/BgACABcAAAADAPn/BgACABcAAAAEAPn/BgADABUAAAAEAPr/BgAAABYAAAAHAPn/BgACABcAAAAGAPn/BgABABcAAAAHAPv/BgABABQAAAAHAPz/BgAAABUAAAAHAP3/BgADABUAAAAGAP3/BgACABcAAAAFAP3/BgACABcAAAAEAP3/BgABABcAAAAEAAIABgACABcAAAAFAAIABgACABcAAAAGAAIABgADABcAAAAJAAIABgACABcAAAAIAAIABgABABQAAAAHAP7/BgAAABUAAAAHAP//BgAAABUAAAAHAAAABgAAABYAAAAEAAYABgACABcAAAAFAAYABgADABcAAAAFAAUABgAAABUAAAAFAAQABgAAABQAAAAJAAcABgACABcAAAAIAAcABgACABcAAAAHAAcABgABABcAAAAIAAMABgAAABUAAAAIAAQABgAAABUAAAAIAAUABgAAABYAAAD7/wAABgAAABUAAAA=")
 tile_set = SubResource("TileSet_tefeu")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1947548543]
-stream = ExtResource("11_ya4ey")
-
 [node name="DoorContainer" type="Node2D" parent="." unique_id=242740623]
 
 [node name="Unlocked" type="TileMapLayer" parent="DoorContainer" unique_id=769248801]
@@ -11367,6 +11362,11 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorContainer/Locked/WinZone" unique_id=964354987]
 shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="Audio" type="Node2D" parent="." unique_id=2045046698]
+
+[node name="sfx_main_music" type="AudioStreamPlayer2D" parent="Audio" unique_id=1947548543]
+stream = ExtResource("11_ya4ey")
 
 [connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
 [connection signal="UNLOCK_DOOR" from="Player" to="." method="unlock_door"]
