@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bgh8preqcmx2h"]
 
 [ext_resource type="Script" uid="uid://c3kh1wdmoc56t" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cihkfwbtdsfk0" path="res://assets/player/Player_HitDown.png" id="2_smehm"]
-[ext_resource type="Texture2D" uid="uid://06leeyixegvo" path="res://assets/player/Player_HitUp.png" id="3_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://qp2q53245c5q" path="res://assets/player/Player_HitDown.png" id="2_smehm"]
+[ext_resource type="Texture2D" uid="uid://ckjxkheuv3na4" path="res://assets/player/Player_HitUp.png" id="3_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://bd6dhau4taxvs" path="res://assets/player/Player_WalkDown-Sheet.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://omdmo8l3wbr" path="res://assets/player/Player_WalkLeft-Sheet.png" id="5_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://cf20nusx7osc6" path="res://assets/player/Player_WalkRight-Sheet1.png" id="6_3v2ag"]
@@ -296,13 +296,13 @@ script = ExtResource("1_g2els")
 whistle_cast = NodePath("WhistleShapeCast")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1853629284]
-position = Vector2(5.0000005, 17)
+position = Vector2(5.684342e-14, -7)
 scale = Vector2(2.7500002, 2.5625002)
 sprite_frames = SubResource("SpriteFrames_u2ulf")
-animation = &"hitDown"
+animation = &"walkUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207697494]
-position = Vector2(4.5, 8)
+position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="WhistleShapeCast" type="ShapeCast2D" parent="." unique_id=2098564873]
