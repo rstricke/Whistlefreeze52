@@ -42,14 +42,15 @@ func create_hearts(max_health):
 	
 func update_hearts(health, max_health):
 	var hearts = hearts_container.get_children()
-	for i in range(hearts.size()):
+	var n = hearts.size()
+	for i in range(n):
 		var value = i * 2
 		if health >= value + 2:
-			hearts[i].texture = h_full
+			hearts[n-i-1].texture = h_full
 		elif health == value + 1:
-			hearts[i].texture = h_half
+			hearts[n-i-1].texture = h_half
 		else:
-			hearts[i].texture = h_empty
+			hearts[n-i-1].texture = h_empty
 
 
 func play():

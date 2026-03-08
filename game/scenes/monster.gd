@@ -61,6 +61,7 @@ func move(astar_grid: AStarGrid2D, target: Vector2):
 
 func attack(dir: Vector2):
 	print("  Attack!")
+	GameManager.damage(1)
 	match dir:
 		Vector2(1,0):
 			anim.play("attackRight")
