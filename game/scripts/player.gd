@@ -29,11 +29,9 @@ var key_found: bool = false
 
 var is_moving := false
 
-
-
-
 func _ready():
-	GameManager.player = self
+	#GameManager.player = self
+	pass
 
 
 func _process(_delta: float) -> void:

@@ -2,7 +2,8 @@
 extends Node2D
 
 @export var CELL_SIZE := 32
-@export var GRID_SIZE := 100
+@export var GRID_SIZE_X := 100
+@export var GRID_SIZE_Y := 100
 @export var DEBUG_DRAW := false
 @export var DEBUG_DRAW_FOLLOWS_PLAYER := true
 
@@ -22,10 +23,12 @@ var door_key: Area2D
 var fading := false
 var fade_speed := 1.5
 
+@export var grid_shift_x := -1
+@export var grid_shift_y := 0
+	
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	
 	
 	player.cell_size = CELL_SIZE
 
@@ -34,11 +37,12 @@ func _ready() -> void:
 		
 	for monster in monsters:
 		monster.cell_size = CELL_SIZE
-
-	astar_grid = AStarGrid2D.new()
 	
+	astar_grid = AStarGrid2D.new()
+
 	# Top left corner + width and height
-	astar_grid.region = Rect2i(-GRID_SIZE / 2, -GRID_SIZE / 2, GRID_SIZE, GRID_SIZE)
+	astar_grid.region = Rect2i(-GRID_SIZE_X / 2 - grid_shift_x, -GRID_SIZE_Y / 2, GRID_SIZE_X, GRID_SIZE_Y)
+	print(astar_grid.region)
 	astar_grid.cell_size = Vector2(CELL_SIZE, CELL_SIZE)
 	# No diagonal move
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
@@ -87,8 +91,8 @@ func _draw() -> void:
 			x_offset -= player.position.x
 			y_offset -= player.position.y
 
-		for x in range(-GRID_SIZE / 2.0, GRID_SIZE / 2.0):
-			for y in range(-GRID_SIZE / 2.0, GRID_SIZE / 2.0):
+		for x in range(-GRID_SIZE_X / 2.0 - grid_shift_x, GRID_SIZE_X / 2.0 - grid_shift_x):
+			for y in range(-GRID_SIZE_Y / 2.0 - grid_shift_y, GRID_SIZE_Y / 2.0 - grid_shift_y):
 				draw_rect(Rect2(x * CELL_SIZE - x_offset, y * CELL_SIZE - y_offset, CELL_SIZE, CELL_SIZE), Color.ALICE_BLUE, false)
 		queue_redraw() 
 
@@ -155,11 +159,11 @@ func get_random_walkable_point() -> Vector2:
 
 	while true:
 		var cell := Vector2i(
-			randi_range(rect.position.x, rect.position.x + rect.size.x - 1),
-			randi_range(rect.position.y, rect.position.y + rect.size.y - 1)
+			randi_range(rect.position.x - grid_shift_x, rect.position.x + rect.size.x - 1 + grid_shift_x),
+			randi_range(rect.position.y - grid_shift_y, rect.position.y + rect.size.y - 1 + grid_shift_y)
 		)
 
-		if astar_grid.is_in_boundsv(cell) and not astar_grid.is_point_solid(cell):
+		if astar_grid.is_in_boundsv(cell) and not astar_grid.is_point_solid(cell) and ((cell * CELL_SIZE) as Vector2 != player.position):
 			return cell * CELL_SIZE
 
 	return Vector2.ZERO

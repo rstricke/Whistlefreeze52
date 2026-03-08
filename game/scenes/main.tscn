@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://by3fotnue6bic" path="res://assets/light_Ball_512.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cpvow7sgxi65k" path="res://scenes/monster.tscn" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://cxe2r1en3e65j" path="res://assets/whistle.png" id="4_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bghh035376jjq" path="res://assets/whistle.png" id="4_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cq48pk73qg74b" path="res://assets/16x16 house interior/MAIN_ATLAS.png" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://j6xma7mijoq5" path="res://assets/16x16 house interior/2_ebony.png" id="7_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://1nj5xy1uhpnu" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
 [ext_resource type="AudioStream" uid="uid://dmsrdh6t6at64" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
@@ -11250,8 +11250,9 @@ size = Vector2(10, 10)
 [node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
-GRID_SIZE = 19
-DEBUG_DRAW = true
+GRID_SIZE_X = 21
+GRID_SIZE_Y = 20
+DEBUG_DRAW_FOLLOWS_PLAYER = false
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")
@@ -11266,8 +11267,8 @@ visible = false
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
-position = Vector2(64, -8)
-whistle_cd_base = 4
+position = Vector2(64, 0)
+whistle_cd_base = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=958951663]
 
