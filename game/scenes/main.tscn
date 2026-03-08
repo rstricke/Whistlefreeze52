@@ -11248,6 +11248,9 @@ sources/6 = SubResource("TileSetAtlasSource_ya4ey")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
 size = Vector2(10, 10)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_eb6dy"]
+specular_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
@@ -11396,6 +11399,13 @@ shape = SubResource("RectangleShape2D_ya4ey")
 
 [node name="sfx_main_music" type="AudioStreamPlayer2D" parent="Audio" unique_id=1947548543]
 stream = ExtResource("11_ya4ey")
+parameters/looping = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=203700249]
+z_index = -10
+position = Vector2(97.0002, 29.000168)
+scale = Vector2(3524.0002, 2808)
+texture = SubResource("CanvasTexture_eb6dy")
 
 [connection signal="TURN_END" from="Player" to="." method="_on_player_turn_end"]
 [connection signal="UNLOCK_DOOR" from="Player" to="." method="unlock_door"]
