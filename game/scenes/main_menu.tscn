@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://huhhdrc88q30" path="res://font/runescape_uf.ttf" id="15_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cegb36rf6hubr" path="res://assets/pixel-art-key/key-white.png" id="16_a8gd2"]
 [ext_resource type="Texture2D" uid="uid://bghh035376jjq" path="res://assets/whistle.png" id="17_hstxw"]
+[ext_resource type="AudioStream" uid="uid://duwlnm2pph2vw" path="res://assets/tileset/horror_main_theme.ogg" id="18_a8gd2"]
 
 [sub_resource type="Gradient" id="Gradient_8egab"]
 offsets = PackedFloat32Array(0, 0.662889)
@@ -1841,7 +1842,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_iyc35")
 animation = &"walkLeft"
 autoplay = "walkLeft"
-frame_progress = 0.59064245
+frame_progress = 0.8781365
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Tutorial" unique_id=786542530]
 position = Vector2(370.00003, 244)
@@ -1849,7 +1850,7 @@ scale = Vector2(2.7500002, 2.5625002)
 sprite_frames = SubResource("SpriteFrames_y2w2k")
 animation = &"walkLeft"
 autoplay = "walkLeft"
-frame_progress = 0.041341748
+frame_progress = 0.21003169
 
 [node name="Label" type="Label" parent="Tutorial" unique_id=928353951]
 layout_mode = 0
@@ -1874,12 +1875,16 @@ position = Vector2(377, 446.00003)
 scale = Vector2(2.25, 1.8125001)
 sprite_frames = SubResource("SpriteFrames_6tpeu")
 autoplay = "default"
-frame_progress = 0.14260444
+frame_progress = 0.31129485
 
 [node name="Whistle" type="Sprite2D" parent="Tutorial" unique_id=1615813849]
 position = Vector2(824, 257)
 scale = Vector2(4, 4)
 texture = ExtResource("17_hstxw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1301590178]
+stream = ExtResource("18_a8gd2")
+autoplay = true
 
 [connection signal="pressed" from="Main/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Tutorial/PlayButton" to="." method="_on_play_button_pressed"]
