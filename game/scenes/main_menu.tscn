@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cpan8x2p1d8ol"]
+
+[ext_resource type="Script" uid="uid://rx068ss4lrgh" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://djds2b5h1k7nm" path="res://assets/gui/FreeHorrorUi.png" id="2_bqqt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(0, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(64, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(0, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("2_bqqt6")
+region = Rect2(64, 192, 64, 32)
+
+[node name="MainMenu" type="Control" unique_id=1440645454]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=224904880]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 176.0
+offset_right = 576.0
+offset_bottom = 208.0
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_wu84c")
+texture_pressed = SubResource("AtlasTexture_8ln24")
+
+[node name="ExitMenu" type="TextureButton" parent="." unique_id=1875696024]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 296.0
+offset_right = 576.0
+offset_bottom = 336.0
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_rtw2f")
+texture_pressed = SubResource("AtlasTexture_oa1go")
+
+[node name="Label" type="Label" parent="." unique_id=1047614088]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_right = 211.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Whistlefreeze"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

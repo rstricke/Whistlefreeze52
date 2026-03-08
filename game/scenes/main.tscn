@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://by3fotnue6bic" path="res://assets/light_Ball_512.png" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cpvow7sgxi65k" path="res://scenes/monster.tscn" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://c2hoytqw8r1ll" path="res://assets/whistle.png" id="4_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://cxe2r1en3e65j" path="res://assets/whistle.png" id="4_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cq48pk73qg74b" path="res://assets/16x16 house interior/MAIN_ATLAS.png" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://f4deo733uyuj" path="res://scenes/wall.tscn" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://j6xma7mijoq5" path="res://assets/16x16 house interior/2_ebony.png" id="7_85g3d"]

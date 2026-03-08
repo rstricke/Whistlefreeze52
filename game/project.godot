@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Whistlefreeze52"
-run/main_scene="uid://8wc2jg3lwxq6"
+run/main_scene="uid://cpan8x2p1d8ol"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
-GameManager="*uid://cvhlphvtplonc"
+GameManager="*uid://d0ug7lapakiks"
 
 [display]
 
