@@ -11336,6 +11336,7 @@ stream = ExtResource("11_ya4ey")
 z_index = -1
 position = Vector2(-32, -32)
 scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAP3/BgADACsAAAD///3/BgACADEAAAABAP3/BgAEADEAAAD///z/BgACADAAAAABAPz/BgAEADAAAAAAAPz/BgADADAAAAA=")
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="Locked" type="TileMapLayer" parent="DoorContainer" unique_id=932177611]
