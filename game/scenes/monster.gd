@@ -25,21 +25,29 @@ func move(astar_grid: AStarGrid2D, target: Vector2):
 	var path = astar_grid.get_id_path(position / cell_size, target / cell_size)
 	if path.size() > 1: # index 0 is current position
 		var new_pos: Vector2 = path[1] * cell_size
+		var dir = (new_pos-position).normalized()
 		
 		if (new_pos == target):
-			attack(target)
+			attack(dir)
 			return
-		
-		# Setup Animation
-		var tween = create_tween()
-		var dir = (new_pos-position).normalized()
-		set_up_animation(dir)
-		tween.tween_property(self,"position",new_pos,0.2)
-		
+		else:
+			# Setup Animation
+			var tween = create_tween()
+			set_up_animation(dir)
+			tween.tween_property(self,"position",new_pos,0.2)
+			
 
-func attack(player_pos: Vector2):
-	print("Attack!")
-	anim.play("attack")
+func attack(dir: Vector2):
+	print("  Attack!")
+	match dir:
+		Vector2(1,0):
+			anim.play("attackRight")
+		Vector2(-1,0):
+			anim.play("attackLeft")
+		Vector2(0,1):
+			anim.play("attackDown")
+		Vector2(0,-1):
+			anim.play("attackUp")
 
 
 func set_up_animation(dir):
