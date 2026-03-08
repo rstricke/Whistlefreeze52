@@ -32,9 +32,15 @@ script = ExtResource("1_ekxnf")
 [node name="PlayButton" type="TextureButton" parent="." unique_id=224904880]
 layout_mode = 0
 offset_left = 512.0
+<<<<<<< Updated upstream
 offset_top = 176.0
 offset_right = 576.0
 offset_bottom = 208.0
+=======
+offset_top = 222.0
+offset_right = 576.0
+offset_bottom = 254.0
+>>>>>>> Stashed changes
 scale = Vector2(4, 4)
 texture_normal = SubResource("AtlasTexture_wu84c")
 texture_pressed = SubResource("AtlasTexture_8ln24")
