@@ -32,6 +32,14 @@ region = Rect2(0, 192, 64, 32)
 atlas = ExtResource("2_oo0fn")
 region = Rect2(64, 192, 64, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mphia"]
+atlas = ExtResource("2_oo0fn")
+region = Rect2(17, 2, 14, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m4u7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apjy4"]
+
 [node name="HUD" type="Control" unique_id=873675742]
 layout_mode = 3
 anchors_preset = 15
@@ -102,6 +110,19 @@ offset_left = 80.0
 offset_top = 8.0
 offset_right = 184.0
 offset_bottom = 48.0
+
+[node name="Panel" type="Panel" parent="GameMenu" unique_id=1495864507]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="GameMenu/Panel" unique_id=1430108874]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("AtlasTexture_mphia")
+texture_pressed = SubResource("AtlasTexture_0m4u7")
+texture_hover = SubResource("AtlasTexture_apjy4")
 
 [connection signal="pressed" from="MainMenu/PlayButton" to="." method="play"]
 [connection signal="pressed" from="MainMenu/ExitMenu" to="." method="_on_exit_menu_pressed"]
