@@ -1,19 +1,19 @@
 [gd_scene format=4 uid="uid://8wc2jg3lwxq6"]
 
-[ext_resource type="Script" uid="uid://do8r25a57gy5j" path="res://scripts/grid.gd" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://by3fotnue6bic" path="res://assets/light_Ball_512.png" id="2_tefeu"]
-[ext_resource type="PackedScene" uid="uid://cpvow7sgxi65k" path="res://scenes/monster.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://f4deo733uyuj" path="res://scenes/wall.tscn" id="4_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://cq48pk73qg74b" path="res://assets/16x16 house interior/MAIN_ATLAS.png" id="5_tefeu"]
-[ext_resource type="Texture2D" uid="uid://j6xma7mijoq5" path="res://assets/16x16 house interior/2_ebony.png" id="7_85g3d"]
-[ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_choun"]
-[ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
-[ext_resource type="AudioStream" uid="uid://dmsrdh6t6at64" path="res://assets/audio/death_effect_sound.wav" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://do8r25a57gy5j" path="res://scripts/systems/grid.gd" id="1_ouso4"]
+[ext_resource type="PackedScene" uid="uid://cpvow7sgxi65k" path="res://scenes/enemy/monster.tscn" id="2_blune"]
+[ext_resource type="PackedScene" uid="uid://bgh8preqcmx2h" path="res://scenes/player/player.tscn" id="3_th5th"]
+[ext_resource type="Texture2D" uid="uid://by3fotnue6bic" path="res://assets/light_Ball_512.png" id="4_7smn1"]
+[ext_resource type="PackedScene" uid="uid://f4deo733uyuj" path="res://scenes/props/wall.tscn" id="5_raeie"]
+[ext_resource type="Texture2D" uid="uid://cq48pk73qg74b" path="res://assets/16x16 house interior/MAIN_ATLAS.png" id="6_hxu8e"]
+[ext_resource type="Texture2D" uid="uid://j6xma7mijoq5" path="res://assets/16x16 house interior/2_ebony.png" id="7_nvumn"]
+[ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_ou6is"]
+[ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_necax"]
+[ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_r4lks"]
+[ext_resource type="AudioStream" uid="uid://dmsrdh6t6at64" path="res://assets/audio/death_effect_sound.wav" id="11_pg34l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
-texture = ExtResource("5_tefeu")
+texture = ExtResource("6_hxu8e")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -5941,7 +5941,7 @@ texture = ExtResource("5_tefeu")
 63:103/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
-texture = ExtResource("7_85g3d")
+texture = ExtResource("7_nvumn")
 1:0/0 = 0
 2:0/0 = 0
 4:0/0 = 0
@@ -6187,7 +6187,7 @@ texture = ExtResource("7_85g3d")
 12:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
-texture = ExtResource("8_choun")
+texture = ExtResource("8_ou6is")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -6441,7 +6441,7 @@ texture = ExtResource("8_choun")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8y0u"]
-texture = ExtResource("9_ya4ey")
+texture = ExtResource("9_necax")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -8430,7 +8430,7 @@ texture = ExtResource("9_ya4ey")
 31:39/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
-texture = ExtResource("10_choun")
+texture = ExtResource("10_r4lks")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -11135,14 +11135,14 @@ sources/6 = SubResource("TileSetAtlasSource_ya4ey")
 size = Vector2(10, 10)
 
 [node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
-script = ExtResource("1_0wfyh")
+script = ExtResource("1_ouso4")
 CELL_SIZE = 64
 GRID_SIZE = 20
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")
 unlockedDoor = NodePath("DoorContainer/Unlocked")
-monsterScene = ExtResource("3_sugp2")
+monsterScene = ExtResource("2_blune")
 monsterSpawnChance = 0.5
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1633049487]
@@ -11151,7 +11151,7 @@ visible = false
 [node name="CanvasModulate" type="CanvasModulate" parent="CanvasGroup" unique_id=1222208188]
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
-[node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." unique_id=398371810 instance=ExtResource("3_th5th")]
 position = Vector2(64, 0)
 whistle_cd_base = 4
 
@@ -11175,58 +11175,58 @@ text = "Look for the key"
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1811651063]
 position = Vector2(1, 0)
 energy = 0.44
-texture = ExtResource("2_tefeu")
+texture = ExtResource("4_7smn1")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1726134617]
 position_smoothing_enabled = true
 
 [node name="Monsters" type="Node2D" parent="." unique_id=2086723861]
 
-[node name="Monster" parent="Monsters" unique_id=1328880956 instance=ExtResource("3_sugp2")]
+[node name="Monster" parent="Monsters" unique_id=1328880956 instance=ExtResource("2_blune")]
 position = Vector2(-384, 192)
 
-[node name="Monster2" parent="Monsters" unique_id=1267144446 instance=ExtResource("3_sugp2")]
+[node name="Monster2" parent="Monsters" unique_id=1267144446 instance=ExtResource("2_blune")]
 position = Vector2(-384, -64)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=464280494]
 
-[node name="Wall" parent="Obstacles" unique_id=30079762 instance=ExtResource("4_jyhfs")]
+[node name="Wall" parent="Obstacles" unique_id=30079762 instance=ExtResource("5_raeie")]
 position = Vector2(-320, 256)
 
-[node name="Wall8" parent="Obstacles" unique_id=93558451 instance=ExtResource("4_jyhfs")]
+[node name="Wall8" parent="Obstacles" unique_id=93558451 instance=ExtResource("5_raeie")]
 position = Vector2(-384, 256)
 
-[node name="Wall2" parent="Obstacles" unique_id=232316667 instance=ExtResource("4_jyhfs")]
+[node name="Wall2" parent="Obstacles" unique_id=232316667 instance=ExtResource("5_raeie")]
 position = Vector2(-320, 192)
 
-[node name="Wall3" parent="Obstacles" unique_id=764569418 instance=ExtResource("4_jyhfs")]
+[node name="Wall3" parent="Obstacles" unique_id=764569418 instance=ExtResource("5_raeie")]
 position = Vector2(-320, 128)
 
-[node name="Wall4" parent="Obstacles" unique_id=1914244435 instance=ExtResource("4_jyhfs")]
+[node name="Wall4" parent="Obstacles" unique_id=1914244435 instance=ExtResource("5_raeie")]
 position = Vector2(-320, 64)
 
-[node name="Wall5" parent="Obstacles" unique_id=1166474613 instance=ExtResource("4_jyhfs")]
+[node name="Wall5" parent="Obstacles" unique_id=1166474613 instance=ExtResource("5_raeie")]
 position = Vector2(-320, 0)
 
-[node name="Wall6" parent="Obstacles" unique_id=570036377 instance=ExtResource("4_jyhfs")]
+[node name="Wall6" parent="Obstacles" unique_id=570036377 instance=ExtResource("5_raeie")]
 position = Vector2(-320, -64)
 
-[node name="Wall7" parent="Obstacles" unique_id=878689758 instance=ExtResource("4_jyhfs")]
+[node name="Wall7" parent="Obstacles" unique_id=878689758 instance=ExtResource("5_raeie")]
 position = Vector2(-320, -128)
 
-[node name="Wall9" parent="Obstacles" unique_id=1159670142 instance=ExtResource("4_jyhfs")]
+[node name="Wall9" parent="Obstacles" unique_id=1159670142 instance=ExtResource("5_raeie")]
 position = Vector2(-384, -128)
 
-[node name="Wall10" parent="Obstacles" unique_id=1033240571 instance=ExtResource("4_jyhfs")]
+[node name="Wall10" parent="Obstacles" unique_id=1033240571 instance=ExtResource("5_raeie")]
 position = Vector2(-448, -128)
 
-[node name="Wall11" parent="Obstacles" unique_id=190648001 instance=ExtResource("4_jyhfs")]
+[node name="Wall11" parent="Obstacles" unique_id=190648001 instance=ExtResource("5_raeie")]
 position = Vector2(-512, -128)
 
-[node name="Wall12" parent="Obstacles" unique_id=1485632540 instance=ExtResource("4_jyhfs")]
+[node name="Wall12" parent="Obstacles" unique_id=1485632540 instance=ExtResource("5_raeie")]
 position = Vector2(-448, 256)
 
-[node name="Wall13" parent="Obstacles" unique_id=1286040252 instance=ExtResource("4_jyhfs")]
+[node name="Wall13" parent="Obstacles" unique_id=1286040252 instance=ExtResource("5_raeie")]
 position = Vector2(-512, 256)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1355179030]
@@ -11244,7 +11244,7 @@ tile_map_data = PackedByteArray("AAD9//3/AAAaAFoAAAD9//7/AAAaAFsAAAD+//3/AAAbAFo
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1947548543]
-stream = ExtResource("11_ya4ey")
+stream = ExtResource("11_pg34l")
 
 [node name="DoorContainer" type="Node2D" parent="." unique_id=242740623]
 

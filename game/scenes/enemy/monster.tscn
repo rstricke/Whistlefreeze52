@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cpvow7sgxi65k"]
 
-[ext_resource type="Script" uid="uid://ds6bm6bfij56y" path="res://scenes/monster.gd" id="1_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://dxqcje0m1l6a1" path="res://assets/Enemy/Spectre_Move.png" id="2_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://cdg0w78dqin3m" path="res://assets/Enemy/Spectre_Idle.png" id="2_c47ug"]
-[ext_resource type="Texture2D" uid="uid://mkaw0gn786wv" path="res://assets/Enemy/Spectre_Attack.png" id="2_jlss8"]
+[ext_resource type="Script" uid="uid://ds6bm6bfij56y" path="res://scripts/entities/monster.gd" id="1_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://dxqcje0m1l6a1" path="res://assets/enemy/Spectre_Move.png" id="2_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://cdg0w78dqin3m" path="res://assets/enemy/Spectre_Idle.png" id="2_c47ug"]
+[ext_resource type="Texture2D" uid="uid://mkaw0gn786wv" path="res://assets/enemy/Spectre_Attack.png" id="2_jlss8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(64, 64)

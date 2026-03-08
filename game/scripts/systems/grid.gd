@@ -116,7 +116,7 @@ func unlock_door():
 		astar_grid.set_point_solid(to_global(tile * CELL_SIZE) / CELL_SIZE, false)
 
 func _spawn_key():
-	var new_key = preload("res://scenes/Key.tscn").instantiate()
+	var new_key = preload("res://scenes/props/key.tscn").instantiate()
 	new_key.global_position = get_random_walkable_point()
 	print('Spawning Key at', new_key.global_position)
 	add_child(new_key)
