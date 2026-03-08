@@ -1,9 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-@export var MAX_SPEED := 300
-@export var ACCELETARION := 1200.0
-@export var FRICTION := 1000
 @export var whistle_cast: ShapeCast2D
 @export var whistle_cd_base := 3
 @export var whistle_cd := 0
