@@ -11265,7 +11265,7 @@ visible = false
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
-position = Vector2(64, 0)
+position = Vector2(64, -8)
 whistle_cd_base = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=958951663]
