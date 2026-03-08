@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cqhyvwrfo25gs"]
+[gd_scene format=3 uid="uid://b0jprambvache"]
 
-[ext_resource type="Texture2D" uid="uid://byrwccls8w7tl" path="res://assets/deathscreen.png" id="1_qemge"]
+[ext_resource type="Texture2D" uid="uid://dm6gsluhxyaib" path="res://assets/deathscreen.png" id="1_qemge"]
 
 [node name="Control" type="Control" unique_id=2025806062]
 layout_mode = 3
