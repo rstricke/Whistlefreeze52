@@ -11137,7 +11137,7 @@ size = Vector2(10, 10)
 [node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
-GRID_SIZE = 20
+GRID_SIZE = 50
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")

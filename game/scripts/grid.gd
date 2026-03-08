@@ -86,6 +86,8 @@ func _draw() -> void:
 func _on_player_turn_end() -> void:
 	print("Turn ended. Monsters turn")
 
+	var player_turn_delay := 0.0
+
 	# Let the monsters go when the player turn is over
 	for monster in monsters:
 		# Mark the monsters old square as walkable
@@ -97,6 +99,12 @@ func _on_player_turn_end() -> void:
 
 		# Mark the monsters new square as un-walkable
 		astar_grid.set_point_solid(monster.new_pos / CELL_SIZE, true)
+
+		if monster.player_turn_delay > player_turn_delay:
+			player_turn_delay = monster.player_turn_delay
+
+	# Let monster attack animations finish playing before we can move again
+	await get_tree().create_timer(player_turn_delay).timeout
 
 	print("Player turn")
 	player.player_turn = true
