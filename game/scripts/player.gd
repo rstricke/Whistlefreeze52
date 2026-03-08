@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 		
 		#Check if the cell has a key
 		if (!key_found):
-			if cell_has_key(target_pos):
+			if cell_has_key(target_pos) && cell_empty(target_pos):
 				key_found = true
 				UNLOCK_DOOR.emit()
 				%ObjectiveValueLabel.text = 'Look for the door to escape!'
