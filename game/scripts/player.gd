@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 const PULSE_SCENE = preload("res://scenes/effects/pulse.tscn")
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var sfx_whistle = $Audio/whistle_audio
 
 # Used to let the parent know that the player's turn has ended
 signal TURN_END
@@ -35,9 +35,9 @@ var is_moving := false
 var hp: int # Current Hp
 
 
-func _ready():
-	GameManager.player = self
-	hp = max_hp
+#func _ready():
+	#GameManager.player = self
+	#hp = max_hp
 
 func _process(_delta: float) -> void:
 	if !player_turn:
@@ -90,6 +90,7 @@ func _process(_delta: float) -> void:
 		whistle_cd = whistle_cd_base
 		anim.play("whistling")
 		spawn_pulse()
+		sfx_whistle.play()
 		WHISTLED.emit()
 		for i in whistle_cast.get_collision_count():
 			var obj = whistle_cast.get_collider(i)
@@ -106,6 +107,7 @@ func cell_empty(pos: Vector2) -> bool:
 	return !has_wall && !has_tile
 
 func cell_has_key(pos: Vector2) -> bool:
+	print(pos, door_key.global_position)
 	return pos == door_key.global_position
 
 func _physics_process(_delta: float) -> void:
