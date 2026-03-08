@@ -29,6 +29,16 @@ var key_found: bool = false
 
 var is_moving := false
 
+
+## D
+@export var max_hp := 10
+var hp: int # Current Hp
+
+
+func _ready():
+	GameManager.player = self
+	hp = max_hp
+
 func _process(_delta: float) -> void:
 	if !player_turn:
 		return
@@ -111,3 +121,8 @@ func spawn_pulse():
 	var pulse = PULSE_SCENE.instantiate()
 	pulse.global_position = global_position
 	get_tree().current_scene.add_child(pulse)
+	
+
+func take_damage(amount):
+	hp = clamp(hp-amount, 0, max_hp)
+	print("Take Damage")
