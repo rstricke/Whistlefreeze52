@@ -6,12 +6,13 @@ var cell_size := 0
 
 var stun_timer := 0
 
-
+var new_pos: Vector2
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	anim.play("idle")
+	new_pos = position
 
 
 func move(astar_grid: AStarGrid2D, target: Vector2):
@@ -24,10 +25,11 @@ func move(astar_grid: AStarGrid2D, target: Vector2):
 	# This code moves the monster towards the player, using the pathfinding algorithm
 	var path = astar_grid.get_id_path(position / cell_size, target / cell_size)
 	if path.size() > 1: # index 0 is current position
-		var new_pos: Vector2 = path[1] * cell_size
+		new_pos = path[1] * cell_size
 		var dir = (new_pos-position).normalized()
 		
 		if (new_pos == target):
+			new_pos = position
 			attack(dir)
 			return
 		else:

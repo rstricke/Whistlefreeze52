@@ -96,7 +96,7 @@ func _on_player_turn_end() -> void:
 		monster.move(astar_grid, player.position)
 
 		# Mark the monsters new square as un-walkable
-		astar_grid.set_point_solid(monster.position / CELL_SIZE, true)
+		astar_grid.set_point_solid(monster.new_pos / CELL_SIZE, true)
 
 	print("Player turn")
 	player.player_turn = true
