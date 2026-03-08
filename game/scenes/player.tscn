@@ -286,7 +286,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(64, 64)
+size = Vector2(55, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(512, 512)
@@ -296,11 +296,13 @@ script = ExtResource("1_g2els")
 whistle_cast = NodePath("WhistleShapeCast")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1853629284]
-scale = Vector2(4, 4)
+position = Vector2(5.0000005, 17)
+scale = Vector2(2.7500002, 2.5625002)
 sprite_frames = SubResource("SpriteFrames_u2ulf")
 animation = &"hitDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207697494]
+position = Vector2(4.5, 8)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="WhistleShapeCast" type="ShapeCast2D" parent="." unique_id=2098564873]
