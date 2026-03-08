@@ -20,3 +20,7 @@ func switch_gui(menu: Control):
 	current_menu.set_deferred("visible", false)
 	current_menu = menu
 	current_menu.set_deferred("visible", true)
+
+
+func _on_exit_menu_pressed() -> void:
+	get_tree().quit()
