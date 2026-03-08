@@ -13,7 +13,6 @@ extends Node2D
 @export var unlockedDoor: TileMapLayer
 
 @export var monsterScene: PackedScene
-
 @export var monsterSpawnChance := 1.0
 
 var monsters: Array[Monster]
@@ -36,6 +35,8 @@ func _ready() -> void:
 	# Top left corner + width and height
 	astar_grid.region = Rect2i(-GRID_SIZE / 2, -GRID_SIZE / 2, GRID_SIZE, GRID_SIZE)
 	astar_grid.cell_size = Vector2(CELL_SIZE, CELL_SIZE)
+	# No diagonal move
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
 
 	# Get all the "Obstaces" children
