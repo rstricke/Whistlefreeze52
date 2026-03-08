@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cpan8x2p1d8ol"]
 
-[ext_resource type="Script" uid="uid://rx068ss4lrgh" path="res://scripts/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://djds2b5h1k7nm" path="res://assets/gui/FreeHorrorUi.png" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://5ldyxex3sk7o" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bkvlb42qhj4ek" path="res://assets/gui/FreeHorrorUi.png" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://meno8d5wi56h" path="res://runescape_uf.ttf" id="3_bqqt6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
 atlas = ExtResource("2_bqqt6")
@@ -57,7 +58,10 @@ offset_left = -211.0
 offset_right = 211.0
 offset_bottom = 88.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_bqqt6")
 theme_override_font_sizes/font_size = 64
 text = "Asylum Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
