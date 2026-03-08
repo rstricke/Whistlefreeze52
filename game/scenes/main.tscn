@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dtbovja8oyk1m" path="res://assets/16x16 house interior/3_ebony.png" id="8_choun"]
 [ext_resource type="Texture2D" uid="uid://b2devp7r0ah4m" path="res://assets/16x16 house interior/floorwall_ATLAS.png" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dn5s4orbpfrb1" path="res://assets/tileset/combined asylum tiles.png" id="10_choun"]
-[ext_resource type="AudioStream" uid="uid://dce4sphjle6vk" path="res://assets/audio/horror2theme.ogg" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://df34quba2vqx5" path="res://assets/audio/horror2theme.ogg" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tefeu")
@@ -11250,8 +11250,10 @@ size = Vector2(10, 10)
 [node name="Main" type="Node2D" unique_id=1439830060 node_paths=PackedStringArray("player", "obstacleTileMap", "lockedDoor", "unlockedDoor")]
 script = ExtResource("1_0wfyh")
 CELL_SIZE = 64
-GRID_SIZE = 19
+GRID_SIZE_X = 21
+GRID_SIZE_Y = 20
 DEBUG_DRAW = true
+DEBUG_DRAW_FOLLOWS_PLAYER = false
 player = NodePath("Player")
 obstacleTileMap = NodePath("ObstacleTileMapLayer")
 lockedDoor = NodePath("DoorContainer/Locked")
@@ -11265,7 +11267,7 @@ monsterSpawnChance = 0.3
 color = Color(0.017732391, 0.017732391, 0.01773239, 1)
 
 [node name="Player" parent="." unique_id=398371810 instance=ExtResource("1_o5qli")]
-position = Vector2(64, -8)
+position = Vector2(64, 0)
 whistle_cd_base = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=958951663]
